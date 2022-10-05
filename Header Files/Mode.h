@@ -1,7 +1,12 @@
 #ifndef MODE_H
 #define MODE_H
 
+#include <stdlib.h>
+
+#include <fstream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 class Mode {
@@ -27,8 +32,16 @@ class Multiplayer : public Mode {
 };
 
 class SinglePlayer : public Mode {
+ private:
+  int flag3 = 0;
+  int WordCategory;
+  string line;
+  vector<string> lines;
+  int total_lines = 0;
+  int random_number;
+
  public:
-  int word_category();
+  string word_category();
 };
 
 #endif

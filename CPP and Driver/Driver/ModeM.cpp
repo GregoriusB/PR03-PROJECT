@@ -1,5 +1,5 @@
 // include header file
-#include "Mode.h"
+#include "../Header Files/Mode.h"
 
 using namespace std;
 #include <iostream>
@@ -18,6 +18,6 @@ int main() {
   if (Players == "2") {
     Word = UserMultiplayer.user_input_word_to_guess();
   } else {
-    // Word = UserSinglePlayer.word_category();
+    Word = UserSinglePlayer.word_category();
   }
 }
