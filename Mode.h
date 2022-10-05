@@ -5,23 +5,30 @@
 using namespace std;
 
 class Mode {
- protected:
+ private:
   string PlayerReady = "\0";
-  int NumPlayers = -1;
-  bool flag = false;
+
+ protected:
+  string NumPlayers;
+  int flag1 = 0;
+  string Word;
 
  public:
   void is_player_ready();
-  int Number_of_Players();
+  string Number_of_Players();
 };
-#endif
 
 class Multiplayer : public Mode {
+ private:
+  int flag2 = 0;
+
  public:
-  int user_input_word_to_guess();
+  string user_input_word_to_guess();
 };
 
 class SinglePlayer : public Mode {
  public:
   int word_category();
 };
+
+#endif

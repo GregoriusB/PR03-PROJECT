@@ -11,12 +11,13 @@ int main() {
 
   UserMode.is_player_ready();
 
-  int Players;
+  string Players;
   Players = UserMode.Number_of_Players();
 
-  if (Players == 2) {
-    UserMultiplayer.user_input_word_to_guess();
+  string Word;
+  if (Players == "2") {
+    Word = UserMultiplayer.user_input_word_to_guess();
   } else {
-    UserSinglePlayer.word_category();
+    // Word = UserSinglePlayer.word_category();
   }
 }
