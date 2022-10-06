@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+
+shelia
+bloke
+bogan
+brekkie
+barbie
+mate
+crikey
+arvo
+bottleo
+sunnies
+kangaroo
+koala
+bathers
+smoko
+thongs
+truckie
+outback
+yakka
+servo
+tucker
+mozzie
+sickie

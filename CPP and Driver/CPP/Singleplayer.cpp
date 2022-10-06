@@ -6,11 +6,11 @@
 #include <string>
 #include <vector>
 
-#include "Mode.h"
-#include "Nature.txt"
-#include "Other.txt"
-#include "Space.txt"
-#include "Sport.txt"
+#include "../Header Files/Mode.h"
+#include "../TXT FILES/Nature.txt"
+#include "../TXT FILES/Other.txt"
+#include "../TXT FILES/Space.txt"
+#include "../TXT FILES/Sport.txt"
 
 string SinglePlayer::word_category() {
   while (flag3 == 0) {
@@ -22,47 +22,47 @@ string SinglePlayer::word_category() {
          << "Nature (3): Animals, trees, plants, climate" << endl
          << "Other (4): Unknown..." << endl;
     cout << "Category (1,2,3,4): ";
+    cin >> WordCategory;
 
-    switch (WordCategory) {
-      case 1:
-        srand(time(0));
-        ifstream file("Sports.txt");
-        while (getline(file, line)) {
-          total_lines++;
-          lines.push_back(line);
-        }
-        random_number = rand();
-        Word = lines[random_number];
-      case 2:
-        srand(time(0));
-        ifstream file("Space.txt");
-        while (getline(file, line)) {
-          total_lines++;
-          lines.push_back(line);
-        }
-        random_number = rand();
-        Word = lines[random_number];
-      case 3:
-        srand(time(0));
-        ifstream file("Nature.txt");
-        while (getline(file, line)) {
-          total_lines++;
-          lines.push_back(line);
-        }
-        random_number = rand();
-        Word = lines[random_number];
-      case 4:
-        srand(time(0));
-        ifstream file("Other.txt");
-        while (getline(file, line)) {
-          total_lines++;
-          lines.push_back(line);
-        }
-        random_number = rand();
-        Word = lines[random_number];
-      default:
-        flag3 = 0;
-        cout << "Invalid Input. Retry." << endl;
+    if (WordCategory == "1") {
+      srand(time(0));
+      ifstream file("Sports.txt");
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
+    } else if (WordCategory == "2") {
+      srand(time(0));
+      ifstream file("Space.txt");
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
+    } else if (WordCategory == "3") {
+      srand(time(0));
+      ifstream file("Nature.txt");
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
+    } else if (WordCategory == "4") {
+      srand(time(0));
+      ifstream file("Aussie.txt");
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
+    } else {
+      flag3 = 0;
+      cout << "Invalid Input. Retry." << endl;
     }
   }
 }

@@ -34,7 +34,7 @@ class Multiplayer : public Mode {
 class SinglePlayer : public Mode {
  private:
   int flag3 = 0;
-  int WordCategory;
+  string WordCategory;
   string line;
   vector<string> lines;
   int total_lines = 0;

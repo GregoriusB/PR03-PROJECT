@@ -1,4 +1,6 @@
 // include header file
+#include "../CPP/Multiplayer.cpp"
+#include "../CPP/Singleplayer.cpp"
 #include "../Header Files/Mode.h"
 
 using namespace std;
