@@ -6,11 +6,11 @@
 #include <string>
 #include <vector>
 
-#include "../Header Files/Mode.h"
-#include "../TXT FILES/Nature.txt"
-#include "../TXT FILES/Other.txt"
-#include "../TXT FILES/Space.txt"
-#include "../TXT FILES/Sport.txt"
+#include "Aussie.txt"
+#include "Mode.h"
+#include "Nature.txt"
+#include "Space.txt"
+#include "Sport.txt"
 
 string SinglePlayer::word_category() {
   while (flag3 == 0) {

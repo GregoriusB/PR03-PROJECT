@@ -26,6 +26,7 @@ class Mode {
 class Multiplayer : public Mode {
  private:
   int flag2 = 0;
+  string Empty = "";
 
  public:
   string user_input_word_to_guess();

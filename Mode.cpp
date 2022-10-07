@@ -1,9 +1,7 @@
-#include "Header Files/Mode.h"
+#include "Mode.h"
 
 #include <iostream>
 #include <string>
-
-#include "../Driver/ModeM.cpp"
 
 using namespace std;
 
