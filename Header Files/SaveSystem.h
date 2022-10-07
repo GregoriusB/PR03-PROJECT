@@ -15,7 +15,7 @@ class SaveSystem {
         int getScore();
         void saveProgress();
 
-}
+};
 
 
 
