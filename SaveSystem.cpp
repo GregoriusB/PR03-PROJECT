@@ -18,3 +18,14 @@ bool ::SaveSystem::checkProgress() {
     return true;
   }
 }
+// Gets Player's score
+int ::SaveSystem:: getScore() {
+  playerScore = NumPoints;
+  return playerScore;
+}
+
+// Saves to progress
+void ::SaveSystem:: saveProgress() {
+  std::ofstream out("progress.txt");
+
+}

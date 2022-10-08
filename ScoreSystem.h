@@ -6,10 +6,10 @@ using namespace std;
 
 class ScoreSystem {
  private:
-  int NumPoints = 0;
 
  public:
   int PointSystem(int Num_Guesses, string Word);
+  int NumPoints = 0;
 };
 
 #endif
