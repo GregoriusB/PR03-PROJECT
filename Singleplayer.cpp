@@ -12,7 +12,9 @@
 #include "Space.txt"
 #include "Sport.txt"
 
-string SinglePlayer::word_category() {
+using namespace std;
+
+string SinglePlayer::Word_Category() {
   while (flag3 == 0) {
     flag3 = 1;
 

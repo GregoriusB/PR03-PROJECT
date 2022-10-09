@@ -42,7 +42,8 @@ class SinglePlayer : public Mode {
   int random_number;
 
  public:
-  string word_category();
+  string Word_Category();
 };
+
 
 #endif

@@ -1,7 +1,8 @@
 // include header file
+#include "GuessWord.h"
 #include "Mode.h"
 #include "Multiplayer.cpp"
-//#include "Singleplayer.cpp"
+#include "Singleplayer.cpp"
 
 using namespace std;
 #include <iostream>
@@ -9,7 +10,8 @@ using namespace std;
 int main() {
   Mode UserMode;
   Multiplayer UserMultiplayer;
-  // SinglePlayer UserSinglePlayer;
+  SinglePlayer UserSinglePlayer;
+  GuessWord UserWord;
 
   UserMode.is_player_ready();
 
@@ -19,7 +21,11 @@ int main() {
   string Word;
   if (Players == "2") {
     Word = UserMultiplayer.user_input_word_to_guess();
+    UserWord.setWord(Word);
+    UserWord.setUnknown(Word);
   } else {
-    // Word = UserSinglePlayer.word_category();
+    Word = UserSinglePlayer.Word_Category();
+    UserWord.setWord(Word);
+    UserWord.setUnknown(Word);
   }
 }

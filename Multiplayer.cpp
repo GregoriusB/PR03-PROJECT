@@ -25,5 +25,8 @@ string Multiplayer::user_input_word_to_guess() {
       }
     }
   }
+  for (int i = 0; i < Word.length(); i++) {
+    Word[i] = tolower(Word[i]);
+  }
   return Word;
 }
