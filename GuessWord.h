@@ -11,7 +11,7 @@ class GuessWord {
 
  protected:
   string Word, AllGuesses, WrongLetters, UnknownWord, Guess;
-  int flag4 = 0, FindGuess, j = 0, k = 0, index[];
+  int flag4 = 0, FindGuess, j = 0, k = 0, index[1];
 
  public:
   string setWord(string Word);

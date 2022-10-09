@@ -9,7 +9,7 @@
 #include <vector>
 using namespace std;
 
-class SaveSystem: public ScoreSystem {
+class SaveSystem: public ScoreSystem, protected GuessWord{
  private:
     int playerScore;
     string *guessedWords = new string[20];
