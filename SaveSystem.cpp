@@ -1,7 +1,5 @@
 #include "SaveSystem.h"
-
 #include <stdlib.h>
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -12,9 +10,11 @@ using namespace std;
 bool ::SaveSystem::checkProgress() {
   ifstream read("progress.txt");
   if (!read) {
-    return 0;
     return false;
   } else {
+    ifstream progress("progress.txt");
+    progress >> playerScore;
+    NumPoints = playerScore;
     return true;
   }
 }
@@ -26,6 +26,6 @@ int ::SaveSystem:: getScore() {
 
 // Saves to progress
 void ::SaveSystem:: saveProgress() {
-  std::ofstream out("progress.txt");
-
+  ofstream progress("progress.txt");
+  progress << playerScore;
 }
