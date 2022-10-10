@@ -1,42 +1,24 @@
+#include <stdlib.h>
 #include <string.h>
 
-#include <cstring>
 #include <iostream>
 using namespace std;
 
-#include "GuessWord.h"
+#include "GameCode.h"
 
-string GuessWord::setWord(string Word) {
-  cout << "The word is " << Word.length() << "characters long." << endl;
-  this->Word = Word;
-  return this->Word;
-}
-
-string GuessWord::setUnknown(string Word) {
-  while (i != Word.length()) {
-    UnknownWord[i] = '0' + 95;
-    i++;
+void GuessWord::UserGuess(string Word) {
+  cout << "The word is " << Word.length() << " characters long." << endl;
+  for (int i = 0; i < Word.length(); i++) {
+    UnknownWord[i] = 95;
   }
-  return UnknownWord;
-}
-
-bool GuessWord::NumLives() {
-  if (NumLife != 6) {
-    NumLife++;
-    return true;
-  } else {
-    return false;
-  }
-}
-
-string GuessWord::UserGuess(string UnknownWord, string Word) {
-  while (NumLife > 6) {
+  while ((NumLife < 6) && (L != Word.length())) {
     for (int i = 0; i < UnknownWord.length(); i++) {
       cout << UnknownWord[i];
     }
     cout << endl;
     cout << "Enter a letter: ";
     cin >> Guess;
+
     while (flag4 == 0) {
       flag4 = 1;
 
@@ -62,7 +44,7 @@ string GuessWord::UserGuess(string UnknownWord, string Word) {
     }
 
     Guess = ::tolower(Guess[0]);
-    
+
     for (int i = 0; i < Word.length(); i++) {
       if (Guess[0] == Word[i]) {
         j++;
@@ -71,10 +53,17 @@ string GuessWord::UserGuess(string UnknownWord, string Word) {
     }
     if (j != 0) {
       cout << "Correct Guess!" << endl;
+      L++;
     } else {
       cout << "Wrong Guess!" << endl;
+      NumLife++;
     }
     AllGuesses[k] = Guess[0];
     k++;
+  }
+  if (L == Word.length()) {
+    cout << "Game Won! Congratulations! The word was: " << Word << endl;
+  } else {
+    cout << "Game Lost! The word was: " << Word << endl;
   }
 }

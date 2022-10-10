@@ -28,8 +28,12 @@ class Multiplayer : public Mode {
   int flag2 = 0;
   string Empty = "";
 
+ protected:
+  string Word;
+
  public:
-  string user_input_word_to_guess();
+  string SetWord();
+  string GetWord();
 };
 
 class SinglePlayer : public Mode {
@@ -41,9 +45,22 @@ class SinglePlayer : public Mode {
   int total_lines = 0;
   int random_number;
 
+ protected:
+  string Word;
+
  public:
-  string Word_Category();
+  string SetWord();
 };
 
+class GuessWord : public SinglePlayer, public Multiplayer {
+ private:
+  string AllGuesses, WrongLetters, UnknownWord, Guess;
+  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0, NumLife = 0;
+
+ public:
+  string setUnknown(string Word);
+
+  void UserGuess(string Word);
+};
 
 #endif

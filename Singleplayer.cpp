@@ -7,14 +7,14 @@
 #include <vector>
 
 #include "Aussie.txt"
-#include "Mode.h"
+#include "GameCode.h"
 #include "Nature.txt"
 #include "Space.txt"
 #include "Sport.txt"
 
 using namespace std;
 
-string SinglePlayer::Word_Category() {
+string SinglePlayer::SetWord() {
   while (flag3 == 0) {
     flag3 = 1;
 

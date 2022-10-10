@@ -1,11 +1,11 @@
 #include <string>
 
-#include "Mode.h"
+#include "GameCode.h"
 using namespace std;
 #include <iostream>
 
 // if the user selects multiplayer, they are prompted to enter a word
-string Multiplayer::user_input_word_to_guess() {
+string Multiplayer::SetWord() {
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
@@ -14,7 +14,7 @@ string Multiplayer::user_input_word_to_guess() {
 
     for (int i = 0; i < Word.length(); i++) {
       while (isdigit(Word[i]) != 0 ||
-             ((Word.length() < 1) || (Word.length() > 17))) {
+             ((Word.length() < 2) || (Word.length() > 16))) {
         Word.assign(Empty);
         cout << "Invalid Input. Retry" << endl;
         cout << "What is the word the other player will guess (2-16 "
@@ -30,3 +30,5 @@ string Multiplayer::user_input_word_to_guess() {
   }
   return Word;
 }
+
+string Multiplayer::GetWord() { return Word; }

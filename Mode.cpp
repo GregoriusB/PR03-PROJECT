@@ -1,7 +1,7 @@
-#include "Mode.h"
-
 #include <iostream>
 #include <string>
+
+#include "GameCode.h"
 
 using namespace std;
 
