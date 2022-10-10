@@ -7,5 +7,5 @@
 using namespace std;
 int main() {
 	SaveSystem saving;
-	saving.loadProgress();
+	saving.clear();
 }

@@ -9,14 +9,13 @@ using namespace std;
 // Checks for progress
 void SaveSystem::loadProgress()
   {
-  ifstream loading;
-  loading.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
   string strPoints;
-  while (getline(loading, strPoints)) {
-    cout << strPoints << " ";
+  ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  while (getline (load,strPoints)) {
     playerScore = stoi(strPoints);
   }
-  loading.close();
+  cout << playerScore;
+  load.close();
 }
 
 //clears data
@@ -41,7 +40,6 @@ void ::SaveSystem::saveProgress() {
     {
       //store contents to text file
       save << playerScore << "\n";
-      save <<"";
       save.close();
     }
     else{
