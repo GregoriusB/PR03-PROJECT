@@ -52,14 +52,17 @@ class SinglePlayer : public Mode {
   string SetWord();
 };
 
-class GuessWord : public SinglePlayer, public Multiplayer {
+// public Singleplayer
+class GuessWord : public Multiplayer {
  private:
-  string AllGuesses, WrongLetters, UnknownWord, Guess;
-  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0, NumLife = 0;
+  string Guess;
+  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0;
+
+ protected:
+  string Word, AllGuesses, WrongLetters, UnknownWord;
+  int NumLife = 0;
 
  public:
-  string setUnknown(string Word);
-
   void UserGuess(string Word);
 };
 

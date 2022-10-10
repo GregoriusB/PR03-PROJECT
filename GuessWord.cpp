@@ -12,7 +12,7 @@ void GuessWord::UserGuess(string Word) {
     UnknownWord[i] = 95;
   }
   while ((NumLife < 6) && (L != Word.length())) {
-    for (int i = 0; i < UnknownWord.length(); i++) {
+    for (int i = 0; i < Word.length(); i++) {
       cout << UnknownWord[i];
     }
     cout << endl;
@@ -45,6 +45,7 @@ void GuessWord::UserGuess(string Word) {
 
     Guess = ::tolower(Guess[0]);
 
+    j = 0;
     for (int i = 0; i < Word.length(); i++) {
       if (Guess[0] == Word[i]) {
         j++;
