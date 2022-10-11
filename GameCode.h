@@ -52,8 +52,7 @@ class SinglePlayer : public Mode {
   string SetWord();
 };
 
-// public Singleplayer
-class GuessWord : public Multiplayer {
+class GuessWord : public Multiplayer, public SinglePlayer {
  private:
   string Guess;
   int flag4 = 0, FindGuess, j = 0, k = 0, L = 0, NumNotGuessed = 0;
@@ -63,7 +62,7 @@ class GuessWord : public Multiplayer {
   int NumLife = 0;
 
  public:
-  void UserGuess(string Word);
+  bool UserGuess(string Word);
 };
 
 #endif

@@ -6,7 +6,7 @@ using namespace std;
 
 #include "GameCode.h"
 
-void GuessWord::UserGuess(string Word) {
+bool GuessWord::UserGuess(string Word) {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
   for (int i = 0; i < Word.length(); i++) {
