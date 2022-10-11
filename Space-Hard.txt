@@ -1,6 +1,6 @@
 extraterrestrial
 heliocentrism
-nucelosynthesis
+nucleosynthesis
 centauri
 titan
 ganymede
