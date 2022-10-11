@@ -19,3 +19,4 @@ int ScoreSystem::PointSystem(int Num_Guesses, string GuessedLetters) {
   }
   return NumPoints;
 }
+

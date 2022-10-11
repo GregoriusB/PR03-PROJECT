@@ -8,9 +8,11 @@ using namespace std;
 
 void GuessWord::UserGuess(string Word) {
   cout << "The word is " << Word.length() << " characters long." << endl;
+
   for (int i = 0; i < Word.length(); i++) {
     UnknownWord[i] = 95;
   }
+
   while ((NumLife < 6) && (L != Word.length())) {
     for (int i = 0; i < Word.length(); i++) {
       cout << UnknownWord[i];
@@ -53,15 +55,22 @@ void GuessWord::UserGuess(string Word) {
       }
     }
     if (j != 0) {
-      cout << "Correct Guess!" << endl;
       L++;
     } else {
-      cout << "Wrong Guess!" << endl;
       NumLife++;
     }
     AllGuesses[k] = Guess[0];
     k++;
+
+    NumNotGuessed = 0;
+    char *NotGuessed = new char[Word.length()];
+    for (int i = 0; i < Word.length(); i++) {
+      if (UnknownWord[i] != Word[i]) {
+        NotGuessed[NumNotGuessed] = Word[i];
+      }
+    }
   }
+
   if (L == Word.length()) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
   } else {
