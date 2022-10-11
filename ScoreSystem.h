@@ -5,15 +5,11 @@
 using namespace std;
 
 class ScoreSystem {
- private:
-  int NumPoints = 0;
-  string unknownWord;
-  string Word;
-
  public:
+  int NumPoints = 0;
   int PointSystem(int Num_Guesses, string Word);
-  void getHints(char letter);
-  void HintExchange ( char not_guessed);
+
+  int HintExchange(int Not_Guessed);
 };
 
 #endif

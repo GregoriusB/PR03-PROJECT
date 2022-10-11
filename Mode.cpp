@@ -1,9 +1,7 @@
-#include "Header Files/Mode.h"
-
 #include <iostream>
 #include <string>
 
-#include "../Driver/ModeM.cpp"
+#include "GameCode.h"
 
 using namespace std;
 

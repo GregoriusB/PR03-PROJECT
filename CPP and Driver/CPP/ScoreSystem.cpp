@@ -19,3 +19,28 @@ int ScoreSystem::PointSystem(int Num_Guesses, string GuessedLetters) {
   }
   return NumPoints;
 }
+
+void ScoreSystem::HintExchange(char NotGuessed) {
+  char x = NotGuessed(rand() % 26];
+  // check the word from the NotGuessed guess
+  for (int i = 0; i < not_guessed.length(); i++) {
+    if (theWord[i] == toupper(NotGuessed) ||
+        theWord[i] == tolower(NotGuessed)) {
+      guessedRight = true;
+
+      if (i == 0)
+      // If it's the first letter, it should be uppercase
+      {
+        revealed.push_back(NotGuessed);
+        NotGuessed[i] = toupper(NotGuessed);
+      } else {
+        revealed.push_back(NotGuessed);
+        NotGuessed[i] = tolower(NotGuessed);
+      }
+    }
+
+    void Game::revealRandomly() {
+      srand(time(NULL));
+      int ran = rand() % NotGuessed.length();
+      revealLetter(theWord[ran]);
+    }
