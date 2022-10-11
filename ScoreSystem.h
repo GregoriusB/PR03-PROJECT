@@ -2,14 +2,18 @@
 #define SCORESYSTEM_H
 
 #include <string>
-
-#include "GameCode.h"
 using namespace std;
 
-class ScoreSystem : public GuessWord {
- public:
+class ScoreSystem {
+ private:
   int NumPoints = 0;
+  string unknownWord;
+  string Word;
+
+ public:
   int PointSystem(int Num_Guesses, string Word);
+  void getHints(char letter);
+  void HintExchange ( char not_guessed);
 };
 
 #endif
