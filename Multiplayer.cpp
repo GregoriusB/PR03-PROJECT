@@ -1,5 +1,4 @@
 #include <string>
-
 #include "GameCode.h"
 using namespace std;
 #include <iostream>
@@ -11,8 +10,9 @@ string Multiplayer::SetWord() {
   cin >> Word;
   while (flag2 == 0) {
     flag2 = 1;
-
+    // Loop for the first player to enter the word to be guessed
     for (int i = 0; i < Word.length(); i++) {
+      // while loop to ensure the user enters a valid word
       while (isdigit(Word[i]) != 0 ||
              ((Word.length() < 2) || (Word.length() > 16))) {
         Word.assign(Empty);
