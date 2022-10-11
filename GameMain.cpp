@@ -1,7 +1,7 @@
 #include "GameCode.h"
 #include "GuessWord.cpp"
 #include "Multiplayer.cpp"
-//#include "Singleplayer.cpp"
+#include "Singleplayer.cpp"
 
 using namespace std;
 #include <iostream>
@@ -14,9 +14,8 @@ int main() {
   Multiplayer UserMultiplayer;
   GuessWord Guess_Word;
 
-  /* SinglePlayer SinglePlayer;
+  SinglePlayer UserSinglePlayer;
   UserSinglePlayer.SetWord();
-  */
 
   UserMultiplayer.SetWord();
   Guess_Word.UserGuess(UserMultiplayer.GetWord());

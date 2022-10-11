@@ -6,11 +6,7 @@
 #include <string>
 #include <vector>
 
-#include "Aussie.txt"
 #include "GameCode.h"
-#include "Nature.txt"
-#include "Space.txt"
-#include "Sport.txt"
 
 using namespace std;
 

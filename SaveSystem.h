@@ -7,20 +7,17 @@
 #include <vector>
 #include "GameCode.h"
 #include "ScoreSystem.h"
-#include "progress.txt"
 using namespace std;
 
 class SaveSystem : public ScoreSystem, protected GuessWord {
  private:
-  int playerScore = 10;
-  string *guessedWords = new string[20];
+  int playerScore = 0;
 
  public:
   SaveSystem() = default;
   void clear();
   void loadProgress();
   int getScore();
-  string addGuessedWords();
   void saveProgress();
 };
 

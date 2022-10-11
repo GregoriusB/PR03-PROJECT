@@ -56,7 +56,7 @@ class SinglePlayer : public Mode {
 class GuessWord : public Multiplayer {
  private:
   string Guess;
-  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0;
+  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0, NumNotGuessed = 0;
 
  protected:
   string Word, AllGuesses, WrongLetters, UnknownWord;
