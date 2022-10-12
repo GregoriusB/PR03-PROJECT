@@ -10,7 +10,7 @@
 
 using namespace std;
 
-string SinglePlayer::SetWord() {
+void SinglePlayer::SetWord() {
   while (flag3 == 0) {
     flag3 = 1;
 

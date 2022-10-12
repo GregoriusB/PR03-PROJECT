@@ -21,6 +21,7 @@ class Mode {
  public:
   void is_player_ready();
   string Number_of_Players();
+  virtual void setWord() = 0;
 };
 
 class Multiplayer : public Mode {
@@ -32,7 +33,7 @@ class Multiplayer : public Mode {
   string Word;
 
  public:
-  string SetWord();
+  void SetWord();
   string GetWord();
 };
 
@@ -49,13 +50,13 @@ class SinglePlayer : public Mode {
   string Word;
 
  public:
-  string SetWord();
+  void SetWord();
 };
 
 class GuessWord : public Multiplayer, public SinglePlayer {
  private:
   string Guess;
-  int flag4 = 0, FindGuess, j = 0, k = 0, L = 0, NumNotGuessed = 0;
+  int flag = 0, FindGuess, j = 0, k = 0, L = 0, NumNotGuessed = 0;
 
  protected:
   string Word, AllGuesses, WrongLetters, UnknownWord;

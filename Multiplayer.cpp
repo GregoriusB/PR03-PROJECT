@@ -1,16 +1,15 @@
-#include <string>
+#include "Multiplayer.h"
 
-#include "GameCode.h"
+#include "Game.h"
 using namespace std;
 #include <iostream>
 
-// if the user selects multiplayer, they are prompted to enter a word
-string Multiplayer::SetWord() {
+void Multiplayer::SetWord() {
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
-  while (flag2 == 0) {
-    flag2 = 1;
+  while (flag == 0) {
+    flag = 1;
 
     for (int i = 0; i < Word.length(); i++) {
       while (isdigit(Word[i]) != 0 ||
@@ -20,7 +19,7 @@ string Multiplayer::SetWord() {
         cout << "What is the word the other player will guess (2-16 "
                 "characters): ";
         cin >> Word;
-        flag2 = 0;
+        flag = 0;
         break;
       }
     }
@@ -28,7 +27,6 @@ string Multiplayer::SetWord() {
   for (int i = 0; i < Word.length(); i++) {
     Word[i] = tolower(Word[i]);
   }
-  return Word;
 }
 
 string Multiplayer::GetWord() { return Word; }

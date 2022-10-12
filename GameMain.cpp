@@ -7,6 +7,24 @@ using namespace std;
 #include <iostream>
 
 int main() {
+
+  int mode;
+
+  cin >> mode;
+
+  Multiplayer* game;
+
+  if(mode == 1) {
+    // game = new SinglePlayer();
+  } else {
+    game = new Multiplayer();
+  }
+
+  game->setWord();
+
+
+
+
   Mode NumP_ReadyP;
   NumP_ReadyP.is_player_ready();
   NumP_ReadyP.Number_of_Players();
@@ -19,4 +37,6 @@ int main() {
 
   UserMultiplayer.SetWord();
   Guess_Word.UserGuess(UserMultiplayer.GetWord());
+
+  delete game;
 }
