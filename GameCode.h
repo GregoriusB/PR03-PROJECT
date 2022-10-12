@@ -41,6 +41,7 @@ class SinglePlayer : public Mode {
  private:
   int flag3 = 0;
   string WordCategory;
+  string difficulty;
   string line;
   vector<string> lines;
   int total_lines = 0;
