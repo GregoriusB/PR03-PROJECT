@@ -40,6 +40,7 @@ int main() {
     // Initilise variables that are necessary for main code.
     int NumLives = 0, CorrectGuess = 0, Increment;
     int NumCorrect;
+    string UserGuess;
     // Defines the "Underscore" word which does not reveal letters that have not
     // been guesses
     game->defineUnknownWord(Word);
@@ -48,7 +49,8 @@ int main() {
     // the while loop will continue to execute
     while ((NumLives < 6) && (CorrectGuess != Word.length())) {
       game->PrintUnknownWord(Word);
-      NumCorrect = game->get_guess();
+      UserGuess = game->get_guess();
+      NumCorrect = game->getNumberCorrect();
       game->add_guess(UserGuess);
 
       // If the incremented value is not equal to the previous Number of correct

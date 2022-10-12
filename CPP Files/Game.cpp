@@ -50,7 +50,7 @@ void Game::add_guess(Guess a_guess) {
   guesses[NumGuesses] = a_guess;
   NumGuesses++;
 }
-
+int Game::getNumberCorrect() { return j; }
 // Defines and prints the unknown word
 void Game::defineUnknownWord(string Word) {
   for (int i = 0; i < Word.length(); i++) {
@@ -76,7 +76,7 @@ void Game::PrintNumGuesses() {
 }
 
 // Attain a guess from the user
-int Game::get_guess() {
+string Game::get_guess() {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
   cout << endl;
@@ -120,7 +120,7 @@ int Game::get_guess() {
     }
   }
 
-  return j;
+  return UserGuess;
 }
 
 // Determines whether the user won or lost the game
