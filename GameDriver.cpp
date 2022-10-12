@@ -6,9 +6,8 @@
 #include <vector>
 using namespace std;
 int main() {
-	Game *save;
-	//int theScore = save->getScore(10);
-	save->saveProgress(10);
-	save->loadProgress();
-	save->clear();
+    Game *test;
+    test->is_player_ready();
+    test->Number_of_Players();
+    test->get_guess();
 }
