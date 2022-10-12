@@ -1,29 +1,11 @@
-#include "Game.h"
+#include "../Header Files/Game.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
+
 #include "Guess.cpp"
 using namespace std;
-
-// Checks for progress
-int Game::loadProgress()
-  {
-  int myScore = 0;
-  string strPoints;
-  ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
-  while (getline (load,strPoints)) {
-    myScore = stoi(strPoints);
-  }
-  load.close();
-  return myScore;
-}
-
-//clears data
-void ::Game::clear() {
-  ofstream clear;
-  clear.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
-  clear<<"";
-}
 
 // Gets Player's score
 int ::Game::getScore(int score) {
@@ -35,15 +17,13 @@ int ::Game::getScore(int score) {
 void ::Game::saveProgress(int score) {
   ofstream save;
   save.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
-    if(save.is_open())
-    {
-      //store contents to text file
-      save << score << "\n";
-      save.close();
-    }
-    else{
-      cout << "Problem with opening file";
-    } 
+  if (save.is_open()) {
+    // store contents to text file
+    save << score << "\n";
+    save.close();
+  } else {
+    cout << "Problem with opening file";
+  }
 }
 
 // Determines whether the player is ready to commence the game.
@@ -83,7 +63,7 @@ void Game::PrintUnknownWord(string Word) {
   }
 }
 
-//Prints the guesses and the number of guesses
+// Prints the guesses and the number of guesses
 void Game::PrintGuesses() {
   cout << "Guesses were: ";
   for (int i = 0; i < NumGuesses; i++) {
@@ -95,7 +75,7 @@ void Game::PrintNumGuesses() {
   cout << "Number of Guesses were: " << NumGuesses;
 }
 
-//Attain a guess from the user
+// Attain a guess from the user
 int Game::get_guess() {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
@@ -143,7 +123,7 @@ int Game::get_guess() {
   return j;
 }
 
-//Determines whether the user won or lost the game
+// Determines whether the user won or lost the game
 void Game::GameWL() {
   if (CorrectGuess == Word.length()) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;

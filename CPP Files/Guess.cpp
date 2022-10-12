@@ -1,7 +1,7 @@
-#include "Guess.h"
+#include "../Header Files/Guess.h"
 
 #include <string>
 using namespace std;
 
-//returns the users guess
+// returns the users guess
 string Guess::get_Guess() { return UserGuess; }
