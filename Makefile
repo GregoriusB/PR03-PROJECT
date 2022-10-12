@@ -1,5 +1,5 @@
-main: Game.cpp GameMain.cpp
-	g++ -std=c++11 Game.cpp GameMain.cpp -o main
+main: Game.cpp GameDriver.cpp
+	g++ -std=c++11 Game.cpp GameDriver.cpp -o main
 	./main
 
 save: Game.cpp SaveSystemDriver.cpp 

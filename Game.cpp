@@ -14,7 +14,6 @@ int Game::loadProgress()
   while (getline (load,strPoints)) {
     myScore = stoi(strPoints);
   }
-  cout << myScore;
   load.close();
   return myScore;
 }
