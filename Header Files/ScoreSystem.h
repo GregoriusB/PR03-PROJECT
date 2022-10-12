@@ -3,9 +3,10 @@
 
 #include <string>
 using namespace std;
+#include "Game.h"
 #include "Singleplayer.h"
 
-class ScoreSystem : public Singleplayer {
+class ScoreSystem : public Singleplayer, public Game {
  private:
   string unknownWord;
   string Word;
