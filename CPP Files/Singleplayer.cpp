@@ -136,3 +136,7 @@ void SinglePlayer::setWord() {
     }
   }
 }
+
+string SinglePlayer::getWord(){
+  return Word;
+}
