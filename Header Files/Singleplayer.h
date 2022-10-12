@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Singleplayer {
+class SinglePlayer {
  private:
   int flag3 = 0;
   string WordCategory;
