@@ -9,6 +9,8 @@ using namespace std;
 
 // Include Loadgame/SaveGame Here:
 
+
+
 // Determines whether the player is ready to commence the game.
 void Game::is_player_ready() {
   while (isPlayerReady != "Y") {
@@ -25,16 +27,14 @@ string Game::Number_of_Players() {
   }
   return NumPlayers;
 }
-// Attain the guesses the user has guessed
+
 Guess* Game::get_guesses() { return guesses; }
 
-// Adds each object guess to the guess array
 void Game::add_guess(Guess a_guess) {
   guesses[NumGuesses] = a_guess;
   NumGuesses++;
 }
 
-// Defines and prints the unknown word
 void Game::defineUnknownWord(string Word) {
   for (int i = 0; i < Word.length(); i++) {
     UnknownWord[i] = 95;
@@ -46,7 +46,6 @@ void Game::PrintUnknownWord(string Word) {
   }
 }
 
-//Prints the guesses and the number of guesses
 void Game::PrintGuesses() {
   cout << "Guesses were: ";
   for (int i = 0; i < NumGuesses; i++) {
@@ -54,11 +53,11 @@ void Game::PrintGuesses() {
   }
   cout << endl;
 }
+
 void Game::PrintNumGuesses() {
   cout << "Number of Guesses were: " << NumGuesses;
 }
 
-//Attain a guess from the user
 int Game::get_guess() {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
@@ -106,7 +105,6 @@ int Game::get_guess() {
   return j;
 }
 
-//Determines whether the user won or lost the game
 void Game::GameWL() {
   if (CorrectGuess == Word.length()) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
