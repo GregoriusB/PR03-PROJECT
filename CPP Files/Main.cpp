@@ -1,7 +1,7 @@
 #include "../CPP Files/Game.cpp"
 #include "../CPP Files/Multiplayer.cpp"
+#include "../CPP Files/Singleplayer.cpp"
 #include "../Header Files/Guess.h"
-#include "Singleplayer.cpp"
 
 using namespace std;
 #include <iostream>
@@ -17,8 +17,6 @@ int main() {
 
   // If statement that determines whether the user wishes to replay the game.
   if (PlayAgain == "Y") {
-    
-
     string NumPlayer;
 
     // Determines whether the user is ready to commence the game
