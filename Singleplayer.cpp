@@ -10,9 +10,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-void SinglePlayer::SetWord() {
-=======
 string SinglePlayer::SetWord() {
   // use while loop to ask user easy or hard difficulty
   while (difficulty != "Easy" || difficulty != "Hard"){ 
@@ -21,7 +18,6 @@ string SinglePlayer::SetWord() {
     cin >> difficulty;
   }
 
->>>>>>> df1548fff43fa6ba2db710adb829af75312b1748
   while (flag3 == 0) {
     flag3 = 1;
     // give information to the user what are the available categories
