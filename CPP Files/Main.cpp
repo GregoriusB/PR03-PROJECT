@@ -32,7 +32,7 @@ int main() {
       game->setWord();
       Word = game->getWord();
     } else {
-      Singleplayer* game;
+      SinglePlayer* game;
       game->setWord();
       Word = game->getWord();
     }
