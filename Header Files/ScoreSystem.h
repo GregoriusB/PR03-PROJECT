@@ -6,7 +6,7 @@ using namespace std;
 #include "Game.h"
 #include "Singleplayer.h"
 
-class ScoreSystem : public Singleplayer, public Game {
+class ScoreSystem : public SinglePlayer, public Game {
  private:
   string unknownWord;
   string Word;
