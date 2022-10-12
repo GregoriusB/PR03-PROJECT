@@ -1,7 +1,8 @@
-#include "../CPP Files/Game.cpp"
 #include "../CPP Files/Multiplayer.cpp"
 #include "../CPP Files/Singleplayer.cpp"
 #include "../Header Files/Guess.h"
+#include "../Header Files/Multiplayer.h"
+#include "../Header Files/Singleplayer.h"
 
 using namespace std;
 #include <iostream>
@@ -28,13 +29,13 @@ int main() {
     // Determines the mode the user wishes to play based on the Number of
     // Players. Uses Abstraction and Polymorphism to achieve this
     if (NumPlayer != "1") {
-      Multiplayer* game;
-      game->setWord();
-      Word = game->getWord();
+      Multiplayer* Multi;
+      Multi->setWord();
+      Word = Multi->getWord();
     } else {
-      SinglePlayer* game;
-      game->setWord();
-      Word = game->getWord();
+      SinglePlayer* Single;
+      Single->setWord();
+      Word = Single->getWord();
     }
 
     // Initilise variables that are necessary for main code.
@@ -80,8 +81,6 @@ int main() {
       cout << "Would you like to play again(Y/N)? ";
       cin >> PlayAgain;
     }
-    // Operator used to delete the Object "game".
-    delete game;
   } else {
     // If the user does not want to play again, they are thanked for playing.
     cout << "Thanks for Playing!" << endl;
