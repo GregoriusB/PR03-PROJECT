@@ -1,5 +1,3 @@
-#include "Singleplayer.h"
-
 #include <stdlib.h>
 #include <time.h>
 
@@ -8,17 +6,18 @@
 #include <string>
 #include <vector>
 
+#include "GameCode.h"
+
 using namespace std;
 
-void SinglePlayer::SetWord() {
+string SinglePlayer::SetWord() {
   // use while loop to ask user easy or hard difficulty
-  while (difficulty != "Easy" || difficulty != "Hard") {
-    // I will fix the the code so that it would take both uppercase and
-    // lowercase letter
+  while (difficulty != "Easy" || difficulty != "Hard"){ 
+    // I will fix the the code so that it would take both uppercase and lowercase letter
     cout << "Enter difficulty level : " << endl;
     cin >> difficulty;
   }
-  
+
   while (flag3 == 0) {
     flag3 = 1;
     // give information to the user what are the available categories
@@ -101,10 +100,8 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-    }
-
-    // third category(Nature hard)
-    else if (WordCategory == "3") {
+      // third category(Nature hard)
+    } else if (WordCategory == "3") {
       srand(time(0));
       ifstream file("Nature-Hard.txt");  // read file
       while (getline(file, line)) {
@@ -129,9 +126,4 @@ void SinglePlayer::SetWord() {
       cout << "Invalid Input. Retry." << endl;
     }
   }
-}
-
-// return the word
-string SinglePlayer::getWord(){
-  return Word;
 }

@@ -20,6 +20,7 @@ class Singleplayer {
   string Word;
 
  public:
+  string getWord();
   void SetWord();
   string difficulty;
 };
