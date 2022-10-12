@@ -3,8 +3,9 @@
 
 #include <string>
 using namespace std;
+#include "Singleplayer.h"
 
-class ScoreSystem {
+class ScoreSystem : public Singleplayer {
  private:
   string unknownWord;
   string Word;

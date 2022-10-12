@@ -1,3 +1,5 @@
+#include "Singleplayer.h"
+
 #include <stdlib.h>
 #include <time.h>
 
@@ -6,22 +8,20 @@
 #include <string>
 #include <vector>
 
-#include "GameCode.h"
-
 using namespace std;
 
-<<<<<<< HEAD
 void SinglePlayer::SetWord() {
-=======
-string SinglePlayer::SetWord() {
-  // use while loop to ask user easy or hard difficulty
-  while (difficulty != "Easy" || difficulty != "Hard"){ 
-    // I will fix the the code so that it would take both uppercase and lowercase letter
+  // ask user what difficulty level they want to play
+  cout << "Enter difficulty level : " << endl;
+  cin >> difficulty;
+  // use while loop to keep asking the user easy or hard difficulty
+  while (difficulty != "Easy" || difficulty != "Hard") {
+    // I will fix the the code so that it would take both uppercase and
+    // lowercase words
     cout << "Enter difficulty level : " << endl;
     cin >> difficulty;
   }
 
->>>>>>> df1548fff43fa6ba2db710adb829af75312b1748
   while (flag3 == 0) {
     flag3 = 1;
     // give information to the user what are the available categories
