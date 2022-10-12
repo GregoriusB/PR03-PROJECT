@@ -1,8 +1,8 @@
 #ifndef F21E4D54_B801_4FC5_8ABB_82A868A15F3A
 #define F21E4D54_B801_4FC5_8ABB_82A868A15F3A
-
+#include <iostream>
+#include <fstream>
 #include <string>
-
 #include "Guess.h"
 using namespace std;
 
@@ -18,8 +18,12 @@ class Game {
   void is_player_ready();
   string Number_of_Players();
 
-  // Include Loadgame/SaveGame Here:
- 
+  // Functions for loading/ saving progress
+  void clear();
+  int loadProgress();
+  int getScore(int score);
+  void saveProgress(int score);
+
 
 
 

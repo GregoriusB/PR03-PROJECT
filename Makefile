@@ -1,0 +1,12 @@
+main: Game.cpp GameMain.cpp
+	g++ -std=c++11 Game.cpp GameMain.cpp -o main
+	./main
+
+save: Game.cpp SaveSystemDriver.cpp 
+	g++ -std=c++11 Game.cpp SaveSystemDriver.cpp -o save
+	./save
+
+play : Game.cpp Guess.cpp Multiplayer.cpp Singleplayer.cpp
+	g++ -std=c++11 Game.cpp Multiplayer.cpp Singleplayer.cpp -o play
+	./play
+

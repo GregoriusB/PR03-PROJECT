@@ -1,13 +1,51 @@
 #include "Game.h"
-
+#include <fstream>
 #include <iostream>
 #include <string>
-
 #include "Guess.cpp"
-
 using namespace std;
 
-// Include Loadgame/SaveGame Here:
+// Checks for progress
+int Game::loadProgress()
+  {
+  int myScore = 0;
+  string strPoints;
+  ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  while (getline (load,strPoints)) {
+    myScore = stoi(strPoints);
+  }
+  cout << myScore;
+  load.close();
+  return myScore;
+}
+
+//clears data
+void ::Game::clear() {
+  ofstream clear;
+  clear.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  clear<<"";
+}
+
+// Gets Player's score
+int ::Game::getScore(int score) {
+  playerScore = score;
+  return playerScore;
+}
+
+// Saves to progress
+void ::Game::saveProgress(int score) {
+  ofstream save;
+  save.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+    if(save.is_open())
+    {
+      //store contents to text file
+      save << score << "\n";
+      save.close();
+    }
+    else{
+      cout << "Problem with opening file";
+    } 
+}
 
 
 
