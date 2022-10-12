@@ -26,6 +26,19 @@ void ::Game::saveProgress(int score) {
   }
 }
 
+// Checks for progress
+int Game::loadProgress()
+  {
+  int myPoints = 0;
+  string strPoints;
+  ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  while (getline (load,strPoints)) {
+    myPoints = stoi(strPoints);
+  }
+  load.close();
+  return myPoints;
+}
+
 // Determines whether the player is ready to commence the game.
 void Game::is_player_ready() {
   while (isPlayerReady != "Y") {
