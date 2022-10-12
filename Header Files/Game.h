@@ -3,7 +3,8 @@
 
 #include <string>
 
-#include "Guess.h"
+#include "../Header Files/Guess.h"
+
 using namespace std;
 
 class Game {
@@ -19,9 +20,6 @@ class Game {
   string Number_of_Players();
 
   // Include Loadgame/SaveGame Here:
-
-
-
 
   // Initialise a Guess array of guess objects.
   Guess* guesses = new Guess[20];

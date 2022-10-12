@@ -1,6 +1,6 @@
-#include "Game.cpp"
-#include "Guess.cpp"
-#include "Multiplayer.cpp"
+#include "../CPP Files/Game.cpp"
+#include "../CPP Files/Multiplayer.cpp"
+#include "../Header Files/Guess.h"
 
 using namespace std;
 #include <iostream>

@@ -1,10 +1,9 @@
-#include "Game.h"
+#include "../Header Files/Game.h"
 
 #include <iostream>
 #include <string>
 
-#include "Guess.cpp"
-
+#include "../Header Files/Guess.h"
 
 using namespace std;
 
@@ -47,7 +46,7 @@ void Game::PrintUnknownWord(string Word) {
   }
 }
 
-//Prints the guesses and the number of guesses
+// Prints the guesses and the number of guesses
 void Game::PrintGuesses() {
   cout << "Guesses were: ";
   for (int i = 0; i < NumGuesses; i++) {
@@ -59,7 +58,7 @@ void Game::PrintNumGuesses() {
   cout << "Number of Guesses were: " << NumGuesses;
 }
 
-//Attain a guess from the user
+// Attain a guess from the user
 int Game::get_guess() {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
@@ -107,7 +106,7 @@ int Game::get_guess() {
   return j;
 }
 
-//Determines whether the user won or lost the game
+// Determines whether the user won or lost the game
 void Game::GameWL() {
   if (CorrectGuess == Word.length()) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;

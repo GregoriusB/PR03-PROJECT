@@ -1,4 +1,4 @@
-#include "Multiplayer.h"
+#include "../Header Files/Multiplayer.h"
 
 #include "Game.h"
 using namespace std;
@@ -8,8 +8,8 @@ void Multiplayer::SetWord() {
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
-  while (flag2 == 0) {
-    flag2 = 1;
+  while (flag == 0) {
+    flag = 1;
 
     for (int i = 0; i < Word.length(); i++) {
       // while loop to ensure the user enters a valid word
