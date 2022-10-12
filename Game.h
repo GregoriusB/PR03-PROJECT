@@ -9,7 +9,7 @@ using namespace std;
 class Game {
  private:
   // Initialise private variables that can only be accessed by the class game.
-  int NumGuesses = 0, NumLives = 0, flag = 0, j = 0, k = 0, CorrectGuess = 0;
+  int NumGuesses = 0, NumLives = 0, flag = 0, j = 0, k = 0, CorrectGuess = 0, playerScore = 0;
   string NumPlayers = "0", UserGuess, Word, UnknownWord, AllGuesses,
          isPlayerReady = "\0";
 
@@ -19,7 +19,7 @@ class Game {
   string Number_of_Players();
 
   // Include Loadgame/SaveGame Here:
-
+ 
 
 
 
