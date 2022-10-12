@@ -1,20 +1,23 @@
 #include "../CPP Files/Game.cpp"
 #include "../CPP Files/Multiplayer.cpp"
 #include "../Header Files/Guess.h"
+#include "Singleplayer.cpp"
 
 using namespace std;
 #include <iostream>
 
 int main() {
   // Include Loadgame/SaveGame Here:
+  // Instansiate game object
+  Game* game;
+  int score = game->loadProgress();
 
   // Initialise string value
   string PlayAgain = "Y";
 
   // If statement that determines whether the user wishes to replay the game.
   if (PlayAgain == "Y") {
-    // Instansiate game object
-    Game* game;
+    
 
     string NumPlayer;
 
@@ -82,5 +85,6 @@ int main() {
   } else {
     // If the user does not want to play again, they are thanked for playing.
     cout << "Thanks for Playing!" << endl;
+    game->saveProgress(score);
   }
 }
