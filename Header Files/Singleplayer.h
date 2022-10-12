@@ -23,7 +23,7 @@ class SinglePlayer {
  public:
   // function for the cpp files
   string getWord();
-  void SetWord();
+  void setWord();
 };
 
 #endif  // SINGLEPLAYER_H

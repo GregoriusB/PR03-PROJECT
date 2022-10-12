@@ -11,10 +11,13 @@ using namespace std;
 class Game {
  private:
   // Initialise private variables that can only be accessed by the class game.
-  int NumGuesses = 0, NumLives = 0, flag = 0, j = 0, k = 0, CorrectGuess = 0,
-      playerScore = 0;
+  int flag = 0, j = 0, k = 0, CorrectGuess = 0, playerScore = 0,
+      NumGuesses = 0;
   string NumPlayers = "0", UserGuess, Word, UnknownWord, AllGuesses,
          isPlayerReady = "\0";
+
+ protected:
+  int NumLives = 0;
 
   // Functions necessary for the computational output
  public:
@@ -33,10 +36,11 @@ class Game {
   Guess* get_guesses();
 
   // Asking the user for input of a letter
-  int get_guess();
+  string get_guess();
   // Adds a guess object to the guess array
   void add_guess(Guess a_guess);
   // Defines the unknownword that the user cannot see until they guess correctly
+  int getNumberCorrect();
   void defineUnknownWord(string Word);
   // Determines whether the user won the game or lost
   void GameWL();
