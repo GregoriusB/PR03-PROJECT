@@ -1,6 +1,6 @@
 #include "../Header Files/Multiplayer.h"
 
-#include "Game.h"
+#include "../Header Files/Game.h"
 using namespace std;
 #include <iostream>
 

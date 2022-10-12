@@ -20,6 +20,8 @@ class Singleplayer {
   string Word;
 
  public:
+  // function for the cpp files
+  string getWord();
   void SetWord();
   string difficulty;
 };

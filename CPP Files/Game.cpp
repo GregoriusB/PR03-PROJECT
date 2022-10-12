@@ -1,11 +1,11 @@
 #include "../Header Files/Game.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "Guess.cpp"
-using namespace std;
 
 #include "Guess.cpp"
+using namespace std;
 
 // Gets Player's score
 int ::Game::getScore(int score) {
@@ -17,15 +17,13 @@ int ::Game::getScore(int score) {
 void ::Game::saveProgress(int score) {
   ofstream save;
   save.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
-    if(save.is_open())
-    {
-      //store contents to text file
-      save << score << "\n";
-      save.close();
-    }
-    else{
-      cout << "Problem with opening file";
-    } 
+  if (save.is_open()) {
+    // store contents to text file
+    save << score << "\n";
+    save.close();
+  } else {
+    cout << "Problem with opening file";
+  }
 }
 
 // Determines whether the player is ready to commence the game.

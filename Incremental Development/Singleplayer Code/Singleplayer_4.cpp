@@ -17,7 +17,7 @@ void SinglePlayer::SetWord() {
   // use while loop to keep asking the user easy or hard difficulty
   while (difficulty != "Easy" || difficulty != "Hard") {
     // I will fix the the code so that it would take both uppercase and
-    // lowercase words
+    // lowercase letter
     cout << "Enter difficulty level : " << endl;
     cin >> difficulty;
   }

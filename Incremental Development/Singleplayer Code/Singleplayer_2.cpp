@@ -1,5 +1,3 @@
-#include "Singleplayer.h"
-
 #include <stdlib.h>
 #include <time.h>
 
@@ -8,20 +6,11 @@
 #include <string>
 #include <vector>
 
+#include "GameCode.h"
+
 using namespace std;
 
-void SinglePlayer::SetWord() {
-  // ask user what difficulty level they want to play
-  cout << "Enter difficulty level : " << endl;
-  cin >> difficulty;
-  // use while loop to keep asking the user easy or hard difficulty
-  while (difficulty != "Easy" || difficulty != "Hard") {
-    // I will fix the the code so that it would take both uppercase and
-    // lowercase words
-    cout << "Enter difficulty level : " << endl;
-    cin >> difficulty;
-  }
-
+string SinglePlayer::SetWord() {
   while (flag3 == 0) {
     flag3 = 1;
     // give information to the user what are the available categories
@@ -33,8 +22,14 @@ void SinglePlayer::SetWord() {
     cout << "Category (1,2,3,4): ";
     cin >> WordCategory;
 
-    if (difficulty == "Easy") {
-      // first category(Sports easy)
+    // use while loop to ask user easy or hard difficulty
+    while (difficulty != tolower(Easy) || difficulty != tolower(Hard) ||
+           difficulty != toupper(Easy) || difficulty != toupper(Hard)) {
+      cout << "Enter difficulty level : " << endl;
+      cin >> difficulty;
+    }
+    if (difficulty == Easy || difficulty == toupper(Easy)) {
+      // first category(Sports)
       if (WordCategory == "1") {
         srand(time(0));
         ifstream file("Sports-Easy.txt");  // read file
@@ -45,7 +40,7 @@ void SinglePlayer::SetWord() {
         random_number = rand();
         Word = lines[random_number];
 
-        // second category(Space easy)
+        // second category(Space)
       } else if (WordCategory == "2") {
         srand(time(0));
         ifstream file("Space-Easy.txt");  // read file
@@ -55,7 +50,7 @@ void SinglePlayer::SetWord() {
         }
         random_number = rand();
         Word = lines[random_number];
-        // third category(Nature easy)
+        // third category(Nature)
       } else if (WordCategory == "3") {
         srand(time(0));
         ifstream file("Nature-Easy.txt");  // read file
@@ -66,7 +61,7 @@ void SinglePlayer::SetWord() {
         random_number = rand();
         Word = lines[random_number];
 
-        // fourth category(Random Subjects easy)
+        // fourth category(Random Subjects)
       } else if (WordCategory == "4") {
         srand(time(0));
         ifstream file("Aussie-Easy.txt");  // read file
@@ -82,8 +77,8 @@ void SinglePlayer::SetWord() {
       }
     }
   }
-  if (difficulty == "Hard") {
-    // first category(Sports hard)
+  if (difficulty == tolower(Hard) || difficulty == toupper(Hard)) {
+    // first category(Sports)
     if (WordCategory == "1") {
       srand(time(0));
       ifstream file("Sports-Hard.txt");  // read file
@@ -94,7 +89,7 @@ void SinglePlayer::SetWord() {
       random_number = rand();
       Word = lines[random_number];
 
-      // second category(Space hard)
+      // second category(Space)
     } else if (WordCategory == "2") {
       srand(time(0));
       ifstream file("Space-Hard.txt");  // read file
@@ -104,7 +99,7 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-      // third category(Nature hard)
+      // third category(Nature)
     } else if (WordCategory == "3") {
       srand(time(0));
       ifstream file("Nature-Hard.txt");  // read file
@@ -115,7 +110,7 @@ void SinglePlayer::SetWord() {
       random_number = rand();
       Word = lines[random_number];
 
-      // fourth category(Random Subjects hard)
+      // fourth category(Random Subjects)
     } else if (WordCategory == "4") {
       srand(time(0));
       ifstream file("Aussie-Hard.txt");  // read file
