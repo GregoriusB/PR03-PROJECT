@@ -1,9 +1,9 @@
 #ifndef SINGLEPLAYER_H
 #define SINGLEPLAYER_H
 
-#include<string>
-#include<vector>
-#include<fstream>
+#include <fstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -18,12 +18,12 @@ class Singleplayer {
 
  protected:
   string Word;
+  string difficulty;
 
  public:
   // function for the cpp files
   string getWord();
   void SetWord();
-  string difficulty;
 };
 
-#endif // SINGLEPLAYER_H
+#endif  // SINGLEPLAYER_H

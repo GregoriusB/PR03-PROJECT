@@ -1,4 +1,4 @@
-#include "../Header Files/Singleplayer.h"
+#include "Singleplayer.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -44,9 +44,9 @@ void SinglePlayer::SetWord() {
         }
         random_number = rand();
         Word = lines[random_number];
-
-        // second category(Space easy)
-      } else if (WordCategory == "2") {
+      }
+      // second category(Space easy)
+      else if (WordCategory == "2") {
         srand(time(0));
         ifstream file("Space-Easy.txt");  // read file
         while (getline(file, line)) {
@@ -55,8 +55,9 @@ void SinglePlayer::SetWord() {
         }
         random_number = rand();
         Word = lines[random_number];
-        // third category(Nature easy)
-      } else if (WordCategory == "3") {
+      }
+      // third category(Nature easy)
+      else if (WordCategory == "3") {
         srand(time(0));
         ifstream file("Nature-Easy.txt");  // read file
         while (getline(file, line)) {
@@ -65,9 +66,10 @@ void SinglePlayer::SetWord() {
         }
         random_number = rand();
         Word = lines[random_number];
+      }
 
-        // fourth category(Random Subjects easy)
-      } else if (WordCategory == "4") {
+      // fourth category(Random Subjects easy)
+      else if (WordCategory == "4") {
         srand(time(0));
         ifstream file("Aussie-Easy.txt");  // read file
         while (getline(file, line)) {
@@ -93,9 +95,9 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-
-      // second category(Space hard)
-    } else if (WordCategory == "2") {
+    }
+    // second category(Space hard)
+    else if (WordCategory == "2") {
       srand(time(0));
       ifstream file("Space-Hard.txt");  // read file
       while (getline(file, line)) {
@@ -104,8 +106,9 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-      // third category(Nature hard)
-    } else if (WordCategory == "3") {
+    }
+    // third category(Nature hard)
+    if (WordCategory == "3") {
       srand(time(0));
       ifstream file("Nature-Hard.txt");  // read file
       while (getline(file, line)) {
@@ -114,9 +117,9 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-
-      // fourth category(Random Subjects hard)
-    } else if (WordCategory == "4") {
+    }
+    // fourth category(Random Subjects hard)
+    else if (WordCategory == "4") {
       srand(time(0));
       ifstream file("Aussie-Hard.txt");  // read file
       while (getline(file, line)) {
@@ -125,7 +128,9 @@ void SinglePlayer::SetWord() {
       }
       random_number = rand();
       Word = lines[random_number];
-    } else {
+    }
+    // Invalid input print
+    else {
       flag3 = 0;
       cout << "Invalid Input. Retry." << endl;
     }
