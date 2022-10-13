@@ -5,9 +5,10 @@
 #include <string>
 #include <vector>
 
+#include "../Header Files/Game.h"
 using namespace std;
 
-class SinglePlayer {
+class SinglePlayer : public Game {
  private:
   int flag3 = 0;
   string WordCategory;
@@ -21,6 +22,7 @@ class SinglePlayer {
   string difficulty;
 
  public:
+  SinglePlayer(){};
   // function for the cpp files
   string getWord();
   void setWord();

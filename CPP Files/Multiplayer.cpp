@@ -4,10 +4,11 @@
 using namespace std;
 #include <iostream>
 
-void Multiplayer::SetWord() {
+void Multiplayer::setWord() {
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
+
   while (flag == 0) {
     flag = 1;
 
@@ -25,9 +26,10 @@ void Multiplayer::SetWord() {
       }
     }
   }
+
   for (int i = 0; i < Word.length(); i++) {
     Word[i] = tolower(Word[i]);
   }
 }
 
-string Multiplayer::GetWord() { return Word; }
+string Multiplayer::getWord() { return Word; }

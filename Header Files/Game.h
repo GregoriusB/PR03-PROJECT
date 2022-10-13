@@ -1,19 +1,17 @@
-#ifndef F21E4D54_B801_4FC5_8ABB_82A868A15F3A
-#define F21E4D54_B801_4FC5_8ABB_82A868A15F3A
+#ifndef GAME_H
+#define GAME_H
+
 #include <fstream>
 #include <iostream>
 #include <string>
-
-#include "../Header Files/Guess.h"
 
 using namespace std;
 
 class Game {
  private:
   // Initialise private variables that can only be accessed by the class game.
-  int flag = 0, j = 0, k = 0, CorrectGuess = 0, playerScore = 0,
-      NumGuesses = 0;
-  string NumPlayers = "0", UserGuess, Word, UnknownWord, AllGuesses,
+  int flag = 0, j = 0, k = 0, CorrectGuess = 0, playerScore = 0, NumGuesses = 0;
+  string NumPlayers = "0", UserGuess, UnknownWord, AllGuesses,
          isPlayerReady = "\0";
 
  protected:
@@ -30,29 +28,23 @@ class Game {
   int getScore(int score);
   void saveProgress(int score);
 
-  // Initialise a Guess array of guess objects.
-  Guess* guesses = new Guess[20];
-  // get the guesses.
-  Guess* get_guesses();
-
   // Asking the user for input of a letter
-  string get_guess();
-  // Adds a guess object to the guess array
-  void add_guess(Guess a_guess);
+  int get_guess(string Word);
+  int LoseLife();
+
   // Defines the unknownword that the user cannot see until they guess correctly
-  int getNumberCorrect();
   void defineUnknownWord(string Word);
+  void PrintUnknownWord(string Word);
   // Determines whether the user won the game or lost
-  void GameWL();
+  void GameWL(string Word);
 
   // Prints the guesses, number of guesses, and the current unknownword
   void PrintGuesses();
   void PrintNumGuesses();
-  void PrintUnknownWord(string Word);
 
   // abstraction to allow singleplayer/multiplayer
   virtual void setWord() = 0;
   virtual string getWord() = 0;
 };
 
-#endif /* F21E4D54_B801_4FC5_8ABB_82A868A15F3A */
+#endif /* GAME_H */

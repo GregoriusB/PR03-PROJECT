@@ -4,17 +4,16 @@
 #include <iostream>
 #include <string>
 
-#include "Guess.cpp"
 using namespace std;
 
 // Gets Player's score
-int ::Game::getScore(int score) {
+int Game::getScore(int score) {
   playerScore = score;
   return playerScore;
 }
 
 // Saves to progress
-void ::Game::saveProgress(int score) {
+void Game::saveProgress(int score) {
   ofstream save;
   save.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
   if (save.is_open()) {
@@ -27,12 +26,11 @@ void ::Game::saveProgress(int score) {
 }
 
 // Checks for progress
-int Game::loadProgress()
-  {
+int Game::loadProgress() {
   int myPoints = 0;
   string strPoints;
   ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
-  while (getline (load,strPoints)) {
+  while (getline(load, strPoints)) {
     myPoints = stoi(strPoints);
   }
   load.close();
@@ -55,15 +53,7 @@ string Game::Number_of_Players() {
   }
   return NumPlayers;
 }
-// Attain the guesses the user has guessed
-Guess* Game::get_guesses() { return guesses; }
 
-// Adds each object guess to the guess array
-void Game::add_guess(Guess a_guess) {
-  guesses[NumGuesses] = a_guess;
-  NumGuesses++;
-}
-int Game::getNumberCorrect() { return j; }
 // Defines and prints the unknown word
 void Game::defineUnknownWord(string Word) {
   for (int i = 0; i < Word.length(); i++) {
@@ -80,7 +70,7 @@ void Game::PrintUnknownWord(string Word) {
 void Game::PrintGuesses() {
   cout << "Guesses were: ";
   for (int i = 0; i < NumGuesses; i++) {
-    cout << " " << guesses[i].get_Guess();
+    cout << " " << AllGuesses[i];
   }
   cout << endl;
 }
@@ -89,7 +79,7 @@ void Game::PrintNumGuesses() {
 }
 
 // Attain a guess from the user
-string Game::get_guess() {
+int Game::get_guess(string Word) {
   cout << "The word is " << Word.length() << " characters long." << endl;
 
   cout << endl;
@@ -124,20 +114,27 @@ string Game::get_guess() {
   AllGuesses[k] = UserGuess[0];
   k++;
 
-  j = 0;
+  CorrectGuess = 0;
   for (int i = 0; i < Word.length(); i++) {
     if (UserGuess[0] == Word[i]) {
-      j++;
       UnknownWord[i] = Word[i];
       CorrectGuess++;
     }
   }
 
-  return UserGuess;
+  AllGuesses[j] = UserGuess[0];
+  j++;
+
+  return CorrectGuess;
+}
+
+int Game::LoseLife() {
+  NumLives++;
+  return NumLives;
 }
 
 // Determines whether the user won or lost the game
-void Game::GameWL() {
+void Game::GameWL(string Word) {
   if (CorrectGuess == Word.length()) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
   } else {
