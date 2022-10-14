@@ -1,54 +1,50 @@
 #include "../Header Files/Game.h"
-#include "../Header Files/Multiplayer.h"
-#include "../Header Files/Singleplayer.h"
+#include "../Header Files/Player.h"
+#include "Multiplayer.cpp"
+//#include "Singleplayer.cpp"
+#include "../CPP Files/Graphics.cpp"
 
 using namespace std;
 #include <iostream>
+#include <string>
 
 int main() {
-  // Instansiate game objects
-  Game* Hangman;
-  int score = Hangman->loadProgress();
+  Game Hangman;
+  Graphics HangmanPicture;
 
-  // If statement that determines whether the user wishes to replay the Hangman.
+  int score = Hangman.loadProgress();
+
   string UserPlayAgain = "Y";
-  if (UserPlayAgain == "Y") {
+  while (UserPlayAgain == "Y") {
     string NumOfPlayers;
 
     // Determines whether the user is ready to commence the Hangman Game
-    Hangman->is_player_ready();
-    // Attains the number of players, for singleplayer or multiplayer
-    // NumOfPlayers = Hangman->Number_of_Players();
+    Hangman.is_player_ready();
+    NumOfPlayers = Hangman.Number_of_Players();
 
     string Word;
-    Multiplayer* TwoPlayer;
-    TwoPlayer->setWord();
-    Word = TwoPlayer->getWord();
-    // Determines the mode the user wishes to play based on the Number of
-    // Players.
-    // if (NumOfPlayers == "2") {
 
-    // } else {
-    //   SinglePlayer* OnePlayer = new SinglePlayer();
-    //   OnePlayer->setWord();
-    //   Word = OnePlayer->getWord();
-    // }
-
-    // Initilise variables that are necessary for main code.
-    int NumLives, CorrectGuess = 0, Increment;
-    int NumCorrect;
+    // Determines the mode the user wishes to play from Number of Players.
+    if (NumOfPlayers == "2") {
+      Player* TwoPlayer = new Multiplayer();
+      Word = TwoPlayer->setWord();
+    } else {
+      // Player* OnePlayer = new Singleplayer();
+      // Word OnePlayer->setWord();
+    }
 
     // Defines the "Underscore" word which does not reveal letters that
     // have not been guesses
-    Hangman->defineUnknownWord(Word);
+    Hangman.defineUnknownWord(Word);
 
     // While the user has not used all lives, and has not yet guessed the
     // word
     // the while loop will continue to execute
-    int i = 0;
+    cout << "The Word is " << Word.length() << " characters long." << endl;
+    int NumLives = 0, CorrectGuess = 0, Increment, NumCorrect, i = 0;
     while ((NumLives < 6) && (CorrectGuess != Word.length())) {
-      Hangman->PrintUnknownWord(Word);
-      NumCorrect = Hangman->get_guess(Word);
+      Hangman.PrintUnknownWord(Word);
+      NumCorrect = Hangman.get_guess(Word);
 
       // If the incremented value is not equal to the previous Number of
       // correct guesses, it suggests the user has guessed correctly.
@@ -61,24 +57,18 @@ int main() {
       } else {
         cout << "Wrong Guess!" << endl;
         // The number of lives decreases.
-        NumLives = Hangman->LoseLife();
+        NumLives = Hangman.LoseLife();
+        HangmanPicture.setNumLives(NumLives);
       }
+      HangmanPicture.PrintHangmanGraphics();
     }
-
     // Determines whether the user won or lost, and displays the logic
-    Hangman->GameWL(Word);
-    // Hangman Stats:
-    Hangman->PrintGuesses();
-    Hangman->PrintNumGuesses();
+    Hangman.GameWL(NumLives, Word);
 
-    // Determines whether the user wishes to replay the Hangman
-    while (UserPlayAgain != "Y" || UserPlayAgain != "N") {
-      cout << "Would you like to play again(Y/N)? ";
-      cin >> UserPlayAgain;
-    }
-  } else {
-    // If the user does not want to play again, they are thanked for
-    cout << "Thanks for Playing!" << endl;
-    Hangman->saveProgress(score);
+    // Determines whether the user wishes to replay the Hangman UserPlayAgain =
+    UserPlayAgain = Hangman.PlayAgain();
   }
+  // If the user does not want to play again, they are thanked for
+  cout << "Thanks for Playing!" << endl;
+  Hangman.saveProgress(score);
 }

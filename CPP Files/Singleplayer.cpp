@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void SinglePlayer::setWord() {
+string SinglePlayer::setWord() {
   // ask user what difficulty level they want to play
   cout << "Enter difficulty level : " << endl;
   cin >> difficulty;
@@ -135,6 +135,5 @@ void SinglePlayer::setWord() {
       cout << "Invalid Input. Retry." << endl;
     }
   }
+  return Word;
 }
-
-string SinglePlayer::getWord() { return Word; }

@@ -24,8 +24,7 @@ class SinglePlayer : public Game {
  public:
   SinglePlayer(){};
   // function for the cpp files
-  string getWord();
-  void setWord();
+  string setWord();
 };
 
 #endif  // SINGLEPLAYER_H

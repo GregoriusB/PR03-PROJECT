@@ -64,25 +64,11 @@ void Game::PrintUnknownWord(string Word) {
   for (int i = 0; i < Word.length(); i++) {
     cout << UnknownWord[i];
   }
-}
-
-// Prints the guesses and the number of guesses
-void Game::PrintGuesses() {
-  cout << "Guesses were: ";
-  for (int i = 0; i < NumGuesses; i++) {
-    cout << " " << AllGuesses[i];
-  }
   cout << endl;
-}
-void Game::PrintNumGuesses() {
-  cout << "Number of Guesses were: " << NumGuesses;
 }
 
 // Attain a guess from the user
 int Game::get_guess(string Word) {
-  cout << "The word is " << Word.length() << " characters long." << endl;
-
-  cout << endl;
   cout << "Enter a letter: ";
   cin >> UserGuess;
 
@@ -134,10 +120,20 @@ int Game::LoseLife() {
 }
 
 // Determines whether the user won or lost the game
-void Game::GameWL(string Word) {
-  if (CorrectGuess == Word.length()) {
+void Game::GameWL(int NumLives, string Word) {
+  cout << endl;
+  if (NumLives < 6) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
   } else {
     cout << "Game Lost! The word was: " << Word << endl;
   }
+}
+
+string Game::PlayAgain() {
+  while (UserPlayAgain != "Y" && UserPlayAgain != "N") {
+    cout << "Would you like to play again(Y/N)? ";
+    cin >> UserPlayAgain;
+  }
+  system("clear");
+  return UserPlayAgain;
 }

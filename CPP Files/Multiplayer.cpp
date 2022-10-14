@@ -1,10 +1,8 @@
-#include "../Header Files/Multiplayer.h"
-
-#include "../Header Files/Game.h"
+#include "../Header Files/Player.h"
 using namespace std;
 #include <iostream>
 
-void Multiplayer::setWord() {
+string Multiplayer::setWord() {
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
@@ -30,6 +28,6 @@ void Multiplayer::setWord() {
   for (int i = 0; i < Word.length(); i++) {
     Word[i] = tolower(Word[i]);
   }
+  system("clear");
+  return Word;
 }
-
-string Multiplayer::getWord() { return Word; }

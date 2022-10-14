@@ -12,7 +12,7 @@ class Game {
   // Initialise private variables that can only be accessed by the class game.
   int flag = 0, j = 0, k = 0, CorrectGuess = 0, playerScore = 0, NumGuesses = 0;
   string NumPlayers = "0", UserGuess, UnknownWord, AllGuesses,
-         isPlayerReady = "\0";
+         isPlayerReady = "\0", UserPlayAgain;
 
  protected:
   int NumLives = 0;
@@ -36,15 +36,9 @@ class Game {
   void defineUnknownWord(string Word);
   void PrintUnknownWord(string Word);
   // Determines whether the user won the game or lost
-  void GameWL(string Word);
+  void GameWL(int NumLives, string Word);
 
-  // Prints the guesses, number of guesses, and the current unknownword
-  void PrintGuesses();
-  void PrintNumGuesses();
-
-  // abstraction to allow singleplayer/multiplayer
-  virtual void setWord() = 0;
-  virtual string getWord() = 0;
+  string PlayAgain();
 };
 
 #endif /* GAME_H */
