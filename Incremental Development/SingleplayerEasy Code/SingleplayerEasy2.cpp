@@ -1,15 +1,16 @@
-#include "../Header Files/SingleplayerHard.h"
+#include "../Header Files/SingleplayerEasy.h"
 
 #include <stdlib.h>
+#include <time.h>
 
-#include <ctime>
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
-string SinglePlayerHard::setWord() {
-  // if else statement for hard difficulty
+string SinglePlayerEasy::setWord() {
   while (flag3 == 0) {
     flag3 = 1;
     // give information to the user what are the available categories
@@ -21,39 +22,38 @@ string SinglePlayerHard::setWord() {
     cout << "Category (1,2,3,4): ";
     cin >> WordCategory;
 
-    // first category(Sports hard)
+    // first category(Sports easy)
     if (WordCategory == "1") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
-      Word = SportHard[random];
+      Word = SportEasy[random];
     }
 
-    // second category(Space hard)
+    // second category(Space easy)
     else if (WordCategory == "2") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
-      Word = SpaceHard[random];
+      Word = SpaceEasy[random];
     }
 
-    // third category(Nature hard)
-    if (WordCategory == "3") {
+    // third category(Nature easy)
+    else if (WordCategory == "3") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
-      Word = NatureHard[random];
+      Word = NatureEasy[random];
     }
 
-    // fourth category(Random Subjects hard)
+    // fourth category(Random Subjects easy)
     else if (WordCategory == "4") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
-      Word = AussieHard[random];
+      Word = AussieEasy[random];
     }
-
-    // Invalid input print
+    // else print invalid
     else {
       flag3 = 0;
       cout << "Invalid Input. Retry." << endl;

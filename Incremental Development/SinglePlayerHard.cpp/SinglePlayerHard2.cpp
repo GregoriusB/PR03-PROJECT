@@ -1,10 +1,12 @@
-#include "../Header Files/SingleplayerHard.h"
-
 #include <stdlib.h>
+#include <time.h>
 
-#include <ctime>
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "../Header Files/SingleplayerHard.h"
 
 using namespace std;
 
@@ -44,7 +46,6 @@ string SinglePlayerHard::setWord() {
       int random = rand() % 7;
       Word = NatureHard[random];
     }
-
     // fourth category(Random Subjects hard)
     else if (WordCategory == "4") {
       // get random words from the array

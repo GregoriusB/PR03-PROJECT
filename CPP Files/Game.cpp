@@ -6,16 +6,11 @@
 
 using namespace std;
 
-// Gets Player's score
-int Game::getScore(int score) {
-  playerScore = score;
-  return playerScore;
-}
 
 // Saves to progress
 void Game::saveProgress(int score) {
   ofstream save;
-  save.open("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  save.open("/progress.txt");
   if (save.is_open()) {
     // store contents to text file
     save << score << "\n";
@@ -29,7 +24,7 @@ void Game::saveProgress(int score) {
 int Game::loadProgress() {
   int myPoints = 0;
   string strPoints;
-  ifstream load("/Users/kj/Documents/PR03-PROJECT/progress.txt");
+  ifstream load("progress.txt");
   while (getline(load, strPoints)) {
     myPoints = stoi(strPoints);
   }
@@ -43,6 +38,18 @@ void Game::is_player_ready() {
     cout << "Are your ready to commence the game (Y): ";
     cin >> isPlayerReady;
   }
+}
+
+string Game::new_or_load() {
+  while ((newOrLoad != "N") && (newOrLoad != "L")){
+    cout << "New or load game? (N or L): ";
+    cin >> newOrLoad;
+  }
+  return newOrLoad;
+}
+
+string Game::newGame() {
+  while (newGameSave != "");
 }
 
 // Number of Players

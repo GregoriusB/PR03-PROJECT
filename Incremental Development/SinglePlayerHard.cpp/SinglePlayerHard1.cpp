@@ -1,10 +1,12 @@
 #include "../Header Files/SingleplayerHard.h"
 
 #include <stdlib.h>
+#include <time.h>
 
-#include <ctime>
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -23,36 +25,48 @@ string SinglePlayerHard::setWord() {
 
     // first category(Sports hard)
     if (WordCategory == "1") {
-      // get random words from the array
       srand(time(0));
-      int random = rand() % 7;
-      Word = SportHard[random];
+      ifstream file("Sports-Hard.txt");  // read file
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
     }
-
     // second category(Space hard)
     else if (WordCategory == "2") {
-      // get random words from the array
       srand(time(0));
-      int random = rand() % 7;
-      Word = SpaceHard[random];
+      ifstream file("Space-Hard.txt");  // read file
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
     }
-
     // third category(Nature hard)
     if (WordCategory == "3") {
-      // get random words from the array
       srand(time(0));
-      int random = rand() % 7;
-      Word = NatureHard[random];
+      ifstream file("Nature-Hard.txt");  // read file
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
     }
-
     // fourth category(Random Subjects hard)
     else if (WordCategory == "4") {
-      // get random words from the array
       srand(time(0));
-      int random = rand() % 7;
-      Word = AussieHard[random];
+      ifstream file("Aussie-Hard.txt");  // read file
+      while (getline(file, line)) {
+        total_lines++;
+        lines.push_back(line);
+      }
+      random_number = rand();
+      Word = lines[random_number];
     }
-
     // Invalid input print
     else {
       flag3 = 0;

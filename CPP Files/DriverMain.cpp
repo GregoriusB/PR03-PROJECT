@@ -11,15 +11,20 @@ using namespace std;
 int main() {
   Game Hangman;
   Graphics HangmanPicture;
-
-  int score = Hangman.loadProgress();
-
+  Save s1,s2,s3,s4,s5;
+ 
   string UserPlayAgain = "Y";
   while (UserPlayAgain == "Y") {
     string NumOfPlayers;
+    string newLoad;
 
     // Determines whether the user is ready to commence the Hangman Game
     Hangman.is_player_ready();
+    
+    // Determines whether the user wants to load a game or play a new game
+    newLoad = Hangman.new_or_load();
+
+
     NumOfPlayers = Hangman.Number_of_Players();
 
     string Word;
@@ -70,5 +75,4 @@ int main() {
   }
   // If the user does not want to play again, they are thanked for
   cout << "Thanks for Playing!" << endl;
-  Hangman.saveProgress(score);
 }
