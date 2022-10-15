@@ -49,6 +49,6 @@ void ScoreSystem::getHints(int HintToken, char letter) {
     cout << "Hints are not available" << endl;
   } else {
     HintToken -= 1;  // take 1 from the token
-    UserGuess
+    // UserGuess
   }
 }
