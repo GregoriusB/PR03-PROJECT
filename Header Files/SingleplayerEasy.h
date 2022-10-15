@@ -10,6 +10,10 @@
 using namespace std;
 
 class SinglePlayerEasy : public Singleplayer {
+ private:
+  int flag = 0;
+  string WordCategory;
+
  public:
   // function for the cpp files
   string setWord();
