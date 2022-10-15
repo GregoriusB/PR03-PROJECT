@@ -1,12 +1,10 @@
 #include "../Header Files/SingleplayerEasy.h"
 
 #include <stdlib.h>
-#include <time.h>
 
-#include <fstream>
+#include <ctime>
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
