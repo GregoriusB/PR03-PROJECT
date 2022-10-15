@@ -49,7 +49,7 @@ string Game::new_or_load() {
 }
 
 string Game::newGame() {
-  while (newGameSave != "")
+  while (newGameSave != "");
 }
 
 // Number of Players
