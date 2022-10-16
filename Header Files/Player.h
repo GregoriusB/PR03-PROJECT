@@ -10,6 +10,7 @@ class Player {
 };
 
 class Multiplayer : public Player {
+  // initialize variables used in class multiplayer
  private:
   int flag = 0;
   string Empty = "";
@@ -20,6 +21,7 @@ class Multiplayer : public Player {
 };
 
 class Singleplayer {
+  // initialize variables used in class singleplayer
  protected:
   string difficulty;
   int flag3 = 0;
@@ -33,6 +35,7 @@ class Singleplayer {
 
 class SinglePlayerEasy : public Singleplayer, public Player {
  protected:
+  // Array of words to guess
   string AussieEasy[7] = {"bloke",   "mate",    "mozzie", "kangaroo",
                           "crickey", "sunnies", "koala"};
   string NatureEasy[7] = {"cave",    "environment", "meadow", "rainforest",
@@ -53,6 +56,7 @@ class SinglePlayerEasy : public Singleplayer, public Player {
 
 class SinglePlayerHard : public Singleplayer, public Player {
  protected:
+  // array of words to guess
   string AussieHard[7] = {"brekkie", "bathers", "heaps",  "battler",
                           "servo",   "yakka",   "outback"};
   string NatureHard[7] = {"photosynthesis", "pangaea", "stalacites",

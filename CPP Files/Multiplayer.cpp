@@ -1,8 +1,9 @@
 #include "../Header Files/Player.h"
 using namespace std;
 #include <iostream>
-
+// multiplayer mode
 string Multiplayer::setWord() {
+  // ask user input
   cout << "What is the word the other player will guess (2-16 "
           "characters): ";
   cin >> Word;
@@ -24,7 +25,7 @@ string Multiplayer::setWord() {
       }
     }
   }
-
+  // convert the word into lowercase letter
   for (int i = 0; i < Word.length(); i++) {
     Word[i] = tolower(Word[i]);
   }

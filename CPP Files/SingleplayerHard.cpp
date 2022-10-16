@@ -7,7 +7,7 @@
 #include "../Header Files/Player.h"
 
 using namespace std;
-
+// function to get the puzzle from difficulty hard
 string SinglePlayerHard::setWord() {
   // if else statement for hard difficulty
   while (flag3 == 0) {

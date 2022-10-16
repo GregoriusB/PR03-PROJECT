@@ -7,7 +7,7 @@
 #include "../Header Files/Player.h"
 
 using namespace std;
-
+// function to get difficulty level from user
 string Singleplayer::getDifficulty() {
   // ask user what difficulty level they want to play
   cout << "Enter difficulty level (Easy, Hard): ";

@@ -15,6 +15,7 @@ class Save {
     int playerPoints = 0;
 
   public:
+    // function to load or/and save the game
     Save() = default;
     void loadProgress1();
     void loadProgress2();

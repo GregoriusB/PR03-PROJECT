@@ -7,7 +7,7 @@
 #include "../Header Files/Player.h"
 
 using namespace std;
-
+// function to get the puzzle from difficulty easy
 string SinglePlayerEasy::setWord() {
   while (flag3 == 0) {
     flag3 = 1;

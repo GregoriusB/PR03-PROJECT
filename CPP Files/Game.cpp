@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 // Determines whether the player is ready to commence the game.
 void Game::is_player_ready() {
   while (isPlayerReady != "Y") {
@@ -25,10 +24,10 @@ string Game::new_or_load() {
 }
 
 // Adds Save objects to dynamic array
-bool Game::addSave(Save newSave){
-  if ((newSave.getScore() > 0) && (numSaves < 3)){
+bool Game::addSave(Save newSave) {
+  if ((newSave.getScore() > 0) && (numSaves < 3)) {
     saveSlots[numSaves] = newSave;
-    numSaves ++;
+    numSaves++;
     return true;
   } else {
     return false;
@@ -37,34 +36,39 @@ bool Game::addSave(Save newSave){
 
 // Selects save slot to save in when user chooses new game
 string Game::newGame() {
-   if (numSaves == 0){
-     newGameSave = "1";
-   } else {
-     newGameSave = to_string(numSaves + 1);
-   }
-   if (newGameSave == "4") {
-     cout << "Too many save slots, load a game instead: " << endl;
-     return "-200";
-   }
-   cout << "Using save slot" << " " << newGameSave << endl;
-   return newGameSave;
+  if (numSaves == 0) {
+    newGameSave = "1";
+  } else {
+    newGameSave = to_string(numSaves + 1);
+  }
+  if (newGameSave == "4") {
+    cout << "Too many save slots, load a game instead: " << endl;
+    return "-200";
+  }
+  cout << "Using save slot"
+       << " " << newGameSave << endl;
+  return newGameSave;
 }
 
 // Selects save slot to use when user wishes to load
 string Game::loadGame() {
-  if (numSaves == 0){
-    cout << "Cannot load, no saved data."<< endl << "Creating new game"<< endl;;
+  if (numSaves == 0) {
+    cout << "Cannot load, no saved data." << endl
+         << "Creating new game" << endl;
+    ;
     return "-100";
   }
-  while ((loadGameSave != to_string(numSaves)) && 
-    (loadGameSave != to_string(numSaves-1)) && 
-    (loadGameSave != to_string(numSaves-2))){
+  while ((loadGameSave != to_string(numSaves)) &&
+         (loadGameSave != to_string(numSaves - 1)) &&
+         (loadGameSave != to_string(numSaves - 2))) {
     cout << "Which game would you like to load? (input slot number) :" << endl;
-    for (int i = 0; i < numSaves; i++){
-      cout << "Slot" << " " << i+1 << " " << "(Points: " << saveSlots[i].getScore() << ")" << endl;
+    for (int i = 0; i < numSaves; i++) {
+      cout << "Slot"
+           << " " << i + 1 << " "
+           << "(Points: " << saveSlots[i].getScore() << ")" << endl;
     }
     cin >> loadGameSave;
-    while ((loadGameSave == "0") || (loadGameSave == "-1")){
+    while ((loadGameSave == "0") || (loadGameSave == "-1")) {
       cout << "Enter a valid input : " << endl;
       cin >> loadGameSave;
     }
@@ -75,10 +79,10 @@ string Game::loadGame() {
 // Clear saves
 void Game::clearProgress() {
   numSaves = 0;
-  delete [] saveSlots;
+  delete[] saveSlots;
 }
 
-//loads points to a slot
+// loads points to a slot
 int Game::loadPoints(Save slot) {
   NumPoints = slot.getScore();
   return NumPoints;
@@ -110,7 +114,7 @@ void Game::PrintUnknownWord(string Word) {
 int Game::get_guess(string Word) {
   cout << "Enter a letter: ";
   cin >> UserGuess;
-
+  // while loop to keep asking guess from the user
   while (flag == 0) {
     flag = 1;
 
@@ -134,12 +138,13 @@ int Game::get_guess(string Word) {
       }
     }
   }
-
+  // convert all guesses into lower case letter
   UserGuess = ::tolower(UserGuess[0]);
   AllGuesses[k] = UserGuess[0];
   k++;
 
   CorrectGuess = 0;
+  // for loop to check if the guess letter is a correct guess
   for (int i = 0; i < Word.length(); i++) {
     if (UserGuess[0] == Word[i]) {
       UnknownWord[i] = Word[i];
@@ -152,7 +157,7 @@ int Game::get_guess(string Word) {
 
   return CorrectGuess;
 }
-
+// function to return the number of lives the user has
 int Game::LoseLife() {
   NumLives++;
   return NumLives;
@@ -163,6 +168,7 @@ int Game::GameWL(int NumLives, string Word) {
   cout << endl;
   if (NumLives < 6) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
+    // award the user with points
     if (Word.length() < 5) {
       NumPoints += 5;
       cout << "5 points awarded; The Total so far is: " << NumPoints << endl;
@@ -170,7 +176,7 @@ int Game::GameWL(int NumLives, string Word) {
       NumPoints += 10;
       cout << "10 points awarded; The Total so far is: " << NumPoints << endl;
     }
-
+    // give penalty if user lost the game
   } else {
     cout << "Game Lost! The word was: " << Word << endl;
     NumPoints -= 5;
@@ -179,7 +185,7 @@ int Game::GameWL(int NumLives, string Word) {
   return NumPoints;
 }
 
-//asks user if they wish to play again
+// asks user if they wish to play again
 string Game::PlayAgain() {
   UserPlayAgain = "";
   while (UserPlayAgain != "Y" && UserPlayAgain != "N") {
@@ -190,7 +196,5 @@ string Game::PlayAgain() {
   return UserPlayAgain;
 }
 
-//resets lives
-void:: Game::resetLives() {
-  NumLives = 0;
-}
+// resets lives
+void ::Game::resetLives() { NumLives = 0; }
