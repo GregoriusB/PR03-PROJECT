@@ -8,16 +8,21 @@
 using namespace std;
 
 class Save {
- private:
- int playerPoints;
- string slotName;
+  private:
+  string strPoints;
+  
+  protected:
+    int playerPoints = 0;
 
- public:
-  Save() = default;
-  string getName();
-  int getScore();
-  void setName(string name);
-  void setScore(int score);
+  public:
+    Save() = default;
+    void loadProgress1();
+    void loadProgress2();
+    void loadProgress3();
+    void saveProgress1();
+    void saveProgress2();
+    void saveProgress3();
+    int getScore();
 };
 
 #endif

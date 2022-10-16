@@ -9,14 +9,14 @@
 
 using namespace std;
 
-class Game {
+class Game: protected Save {
  private:
   // Initialise private variables that can only be accessed by the class game.
-  int flag = 0, j = 0, k = 0, CorrectGuess = 0, NumGuesses = 0, playerScore = 0,
-      NumPoints = 0;
+  int flag = 0, j = 0, k = 0, CorrectGuess = 0, NumGuesses = 0,
+      NumPoints = 0, numSaves = 0;
   string NumPlayers = "0", UserGuess, UnknownWord, AllGuesses,
          isPlayerReady = "\0", UserPlayAgain, newOrLoad = "\0",
-         newGameSave = "\0";
+         newGameSave = "\0", loadGameSave = "\0";
 
  protected:
   int NumLives = 0;
@@ -24,6 +24,7 @@ class Game {
  public:
   Save *saveSlots = new Save[3];
   bool addSave(Save newSave);
+  bool checkSave(Save saveSlot);
   void clearProgress();
   void is_player_ready();
   string Number_of_Players();
@@ -33,7 +34,6 @@ class Game {
   string newGame();
   string loadGame();
   void clear();
-  int loadProgress();
   void saveProgress(int score);
 
   // Asking the user for input of a letter
