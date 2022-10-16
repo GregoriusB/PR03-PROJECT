@@ -11,12 +11,17 @@ int main() {
     }
   }
   {
-    // test the functionality of gameWL
+    // test the functionality of gameWL version 1
     Game check;
     check.GameWL(0, "Lion");
     cout << endl;
   }
-
+  {
+    // test the functionality of gameWL version 2
+    Game check;
+    check.GameWL(5, "Lion");
+    cout << endl;
+  }
   {
     // test the functionality of printing unknown word
     Game check;
