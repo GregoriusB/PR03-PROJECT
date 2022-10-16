@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+
 #include "Save.h"
 
 using namespace std;
@@ -11,9 +12,11 @@ using namespace std;
 class Game {
  private:
   // Initialise private variables that can only be accessed by the class game.
-  int flag = 0, j = 0, k = 0, CorrectGuess = 0, NumGuesses = 0, playerScore = 0;
+  int flag = 0, j = 0, k = 0, CorrectGuess = 0, NumGuesses = 0, playerScore = 0,
+      NumPoints = 0;
   string NumPlayers = "0", UserGuess, UnknownWord, AllGuesses,
-         isPlayerReady = "\0", UserPlayAgain, newOrLoad = "\0", newGameSave = "\0";
+         isPlayerReady = "\0", UserPlayAgain, newOrLoad = "\0",
+         newGameSave = "\0";
 
  protected:
   int NumLives = 0;
