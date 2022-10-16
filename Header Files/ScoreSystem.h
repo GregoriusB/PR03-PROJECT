@@ -9,16 +9,17 @@ using namespace std;
 class ScoreSystem : public Singleplayer, public Game {
  private:
   string unknownWord;
-  string Word;
-
+  string hints;
+  
  protected:
   int NumPoints = 0;
   int HintToken = 0;
 
  public:
-  int PointSystem(int Num_Guesses, string Word);
-  void getHints(int HintToken , char letter);
-  void HintExchange(int NumPoints,int HintToken);
+  int pointSystem(int NumLives, string Word);
+  string getHints();
+  void hintExchange(int NumPoints, int HintToken);
+  void revealHints();
 };
 
-#endif //SCORESYSTEM_H
+#endif  // SCORESYSTEM_H

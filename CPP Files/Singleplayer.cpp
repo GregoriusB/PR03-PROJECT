@@ -1,12 +1,10 @@
-#include "../Header Files/Singleplayer.h"
-
 #include <stdlib.h>
-#include <time.h>
 
-#include <fstream>
+#include <ctime>
 #include <iostream>
 #include <string>
-#include <vector>
+
+#include "../Header Files/Player.h"
 
 using namespace std;
 
@@ -16,10 +14,9 @@ string Singleplayer::getDifficulty() {
   cin >> difficulty;
   // use while loop to keep asking the user easy or hard difficulty
   while (difficulty != "Easy" && difficulty != "Hard") {
-    // I will fix the the code so that it would take both uppercase and
-    // lowercase words
     cout << "Enter difficulty level (Easy, Hard): ";
     cin >> difficulty;
   }
+  cout << endl;
   return difficulty;
 }

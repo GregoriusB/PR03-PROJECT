@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 // Saves to progress
 void Game::saveProgress(int score) {
   ofstream save;
@@ -41,7 +40,7 @@ void Game::is_player_ready() {
 }
 
 string Game::new_or_load() {
-  while ((newOrLoad != "N") && (newOrLoad != "L")){
+  while ((newOrLoad != "N") && (newOrLoad != "L")) {
     cout << "New or load game? (N or L): ";
     cin >> newOrLoad;
   }
@@ -49,7 +48,7 @@ string Game::new_or_load() {
 }
 
 string Game::newGame() {
-  while (newGameSave != "");
+  // while (newGameSave != "");
 }
 
 // Number of Players
