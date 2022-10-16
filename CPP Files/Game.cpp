@@ -35,9 +35,19 @@ bool Game::addSave(Save newSave){
   }
 }
 
-//string Game::newGame() {
-  // while (newGameSave != "");
-//}
+string Game::newGame() {
+   if (numSaves == 0){
+     newGameSave = "1";
+   } else {
+     newGameSave = to_string(numSaves + 1);
+   }
+   if (newGameSave == "4") {
+     cout << "Too many save slots, load a game instead: " << endl;
+     return "-200";
+   }
+   cout << "Using save slot" << " " << newGameSave << endl;
+   return newGameSave;
+}
 
 string Game::loadGame() {
   if (numSaves == 0){
@@ -58,6 +68,18 @@ string Game::loadGame() {
     }
   }
   return loadGameSave;
+}
+
+// Clear saves
+void Game::clearProgress() {
+  numSaves = 0;
+  delete [] saveSlots;
+}
+
+//load to slot
+int Game::loadPoints(Save slot) {
+  NumPoints = slot.getScore();
+  return NumPoints;
 }
 
 // Number of Players
@@ -135,7 +157,7 @@ int Game::LoseLife() {
 }
 
 // Determines whether the user won or lost the game
-void Game::GameWL(int NumLives, string Word) {
+int Game::GameWL(int NumLives, string Word) {
   cout << endl;
   if (NumLives < 6) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
@@ -152,6 +174,7 @@ void Game::GameWL(int NumLives, string Word) {
     NumPoints -= 5;
     cout << "5 points lost; The Total so far is: " << NumPoints << endl;
   }
+  return NumPoints;
 }
 
 string Game::PlayAgain() {

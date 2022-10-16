@@ -71,3 +71,8 @@ void Save::saveProgress3() {
 int Save::getScore() {
     return playerPoints;
 }
+
+int Save::setScore(int numPoints) {
+  playerPoints = numPoints;
+  return playerPoints;
+}

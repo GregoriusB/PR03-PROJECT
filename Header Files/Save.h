@@ -22,6 +22,7 @@ class Save {
     void saveProgress1();
     void saveProgress2();
     void saveProgress3();
+    int setScore(int numPoints);
     int getScore();
 };
 

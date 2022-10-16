@@ -10,8 +10,8 @@ play : Game.cpp Guess.cpp Multiplayer.cpp Singleplayer.cpp
 	g++ -std=c++11 Game.cpp Multiplayer.cpp Singleplayer.cpp -o play
 	./play
 
-game : Game.cpp Main.cpp -o game
-	g++ -std=c++11 Game.cpp Main.cpp -o game
+game : Save.cpp Game.cpp DriverMain.cpp -o game
+	g++ -std=c++11 Save.cpp Game.cpp DriverMain.cpp -o game
 	./game
 
 

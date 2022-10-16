@@ -14,6 +14,9 @@ int main() {
   Game Hangman;
   Graphics HangmanPicture;
   Save s1,s2,s3;
+  string NumOfPlayers;
+  string newLoad = "\0";
+  int currentSlot;
   s1.loadProgress1();
   s2.loadProgress2();
   s3.loadProgress3();
@@ -23,25 +26,43 @@ int main() {
     Hangman.addSave(slots[i]);
   }
 
-  string UserPlayAgain = "Y";
-  while (UserPlayAgain == "Y") {
-    string NumOfPlayers;
-    string newLoad;
-    int currentSlot;
+// Determines whether the user wants to load a game or play a new game
+    if (newLoad == "\0"){
+          newLoad = Hangman.new_or_load();
+    }
 
-    // Determines whether the user is ready to commence the Hangman Game
-    Hangman.is_player_ready();
-
-    // Determines whether the user wants to load a game or play a new game
-    newLoad = Hangman.new_or_load();
-
-    if (newLoad == "L"){
+    if (newLoad == "L") {
       currentSlot = stoi(Hangman.loadGame());
     }
 
-    if ((newLoad == "N") || (currentSlot == -100)){
-      //currentSlot = stoi(Hangman.newGame())
+    if (newLoad == "N") {
+      currentSlot = stoi(Hangman.newGame());
     }
+
+    if (currentSlot == -200){
+      currentSlot = stoi(Hangman.loadGame());
+    }
+
+    if (currentSlot == -100){
+      currentSlot = stoi(Hangman.newGame());
+    }
+
+    switch (currentSlot){
+      case 1:
+        Hangman.loadPoints(s1);
+        break;
+      case 2:
+        Hangman.loadPoints(s2);
+        break;
+      case 3:
+        Hangman.loadPoints(s3);
+        break;
+    }
+  string UserPlayAgain = "Y";
+  while (UserPlayAgain == "Y") {
+
+    // Determines whether the user is ready to commence the Hangman Game
+    Hangman.is_player_ready();
 
     NumOfPlayers = Hangman.Number_of_Players();
 
@@ -93,11 +114,26 @@ int main() {
       HangmanPicture.PrintHangmanGraphics();
     }
     // Determines whether the user won or lost, and displays the logic
-    Hangman.GameWL(NumLives, Word);
+    switch (currentSlot){
+      case 1:
+        s1.setScore(Hangman.GameWL(NumLives, Word));
+        break;
+      case 2:
+        s2.setScore(Hangman.GameWL(NumLives, Word));
+        break;
+      case 3:
+        s3.setScore(Hangman.GameWL(NumLives, Word));
+        break;
+    }
+
+    s1.saveProgress1();
+    s2.saveProgress2();
+    s3.saveProgress3();
 
     // Determines whether the user wishes to replay the Hangman UserPlayAgain =
     UserPlayAgain = Hangman.PlayAgain();
   }
   // If the user does not want to play again, they are thanked for
   cout << "Thanks for Playing!" << endl;
+  Hangman.clearProgress();
 }

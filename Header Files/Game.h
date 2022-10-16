@@ -30,6 +30,7 @@ class Game: protected Save {
   string Number_of_Players();
 
   // Functions for loading/ saving progress
+  int loadPoints(Save slot);
   string new_or_load();
   string newGame();
   string loadGame();
@@ -44,7 +45,7 @@ class Game: protected Save {
   void defineUnknownWord(string Word);
   void PrintUnknownWord(string Word);
   // Determines whether the user won the game or lost
-  void GameWL(int NumLives, string Word);
+  int GameWL(int NumLives, string Word);
 
   string PlayAgain();
 };
