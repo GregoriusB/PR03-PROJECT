@@ -13,7 +13,7 @@ using namespace std;
 int main() {
   Game Hangman;
   Graphics HangmanPicture;
-  //Save s1,s2,s3,s4,s5;
+  //Save s1,s2,s3;
  
   string UserPlayAgain = "Y";
   while (UserPlayAgain == "Y") {

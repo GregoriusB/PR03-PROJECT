@@ -19,7 +19,7 @@ class Game {
   int NumLives = 0;
   // Functions necessary for the computational output
  public:
-  Save *saveSlots = new Save[5];
+  Save *saveSlots = new Save[3];
   bool addSave(Save newSave);
   void clearProgress();
   void is_player_ready();
