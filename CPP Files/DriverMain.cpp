@@ -1,8 +1,10 @@
+#include "../CPP Files/Graphics.cpp"
 #include "../Header Files/Game.h"
 #include "../Header Files/Player.h"
 #include "Multiplayer.cpp"
-//#include "Singleplayer.cpp"
-#include "../CPP Files/Graphics.cpp"
+#include "Singleplayer.cpp"
+#include "SingleplayerEasy.cpp"
+#include "SingleplayerHard.cpp"
 
 using namespace std;
 #include <iostream>
@@ -11,8 +13,8 @@ using namespace std;
 int main() {
   Game Hangman;
   Graphics HangmanPicture;
-  Save s1,s2,s3,s4,s5;
- 
+  Save s1, s2, s3, s4, s5;
+
   string UserPlayAgain = "Y";
   while (UserPlayAgain == "Y") {
     string NumOfPlayers;
@@ -20,10 +22,9 @@ int main() {
 
     // Determines whether the user is ready to commence the Hangman Game
     Hangman.is_player_ready();
-    
+
     // Determines whether the user wants to load a game or play a new game
     newLoad = Hangman.new_or_load();
-
 
     NumOfPlayers = Hangman.Number_of_Players();
 
@@ -34,10 +35,17 @@ int main() {
       Player* TwoPlayer = new Multiplayer();
       Word = TwoPlayer->setWord();
     } else {
-      // Player* OnePlayer = new Singleplayer();
-      // Word OnePlayer->setWord();
+      string Difficulty;
+      Singleplayer OnePlayer;
+      Difficulty = OnePlayer.getDifficulty();
+      if (Difficulty == "Hard") {
+        Player* OnePlayerHard = new SinglePlayerHard();
+        Word = OnePlayerHard->setWord();
+      } else {
+        Player* OnePlayerEasy = new SinglePlayerEasy();
+        Word = OnePlayerEasy->setWord();
+      }
     }
-
     // Defines the "Underscore" word which does not reveal letters that
     // have not been guesses
     Hangman.defineUnknownWord(Word);

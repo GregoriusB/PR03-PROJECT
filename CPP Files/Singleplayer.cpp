@@ -1,10 +1,10 @@
-#include "../Header Files/Singleplayer.h"
-
 #include <stdlib.h>
 
 #include <ctime>
 #include <iostream>
 #include <string>
+
+#include "../Header Files/Player.h"
 
 using namespace std;
 
@@ -17,5 +17,6 @@ string Singleplayer::getDifficulty() {
     cout << "Enter difficulty level (Easy, Hard): ";
     cin >> difficulty;
   }
+  cout << endl;
   return difficulty;
 }

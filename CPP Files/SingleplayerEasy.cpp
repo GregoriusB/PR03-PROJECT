@@ -1,10 +1,10 @@
-#include "../Header Files/SingleplayerEasy.h"
-
 #include <stdlib.h>
 
 #include <ctime>
 #include <iostream>
 #include <string>
+
+#include "../Header Files/Player.h"
 
 using namespace std;
 
@@ -26,33 +26,26 @@ string SinglePlayerEasy::setWord() {
       srand(time(0));
       int random = rand() % 7;
       Word = SportEasy[random];
-    }
-
-    // second category(Space easy)
-    else if (WordCategory == "2") {
+      break;
+    } else if (WordCategory == "2") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = SpaceEasy[random];
-    }
-
-    // third category(Nature easy)
-    else if (WordCategory == "3") {
+      break;
+    } else if (WordCategory == "3") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = NatureEasy[random];
-    }
-
-    // fourth category(Random Subjects easy)
-    else if (WordCategory == "4") {
+      break;
+    } else if (WordCategory == "4") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = AussieEasy[random];
-    }
-    // else print invalid
-    else {
+      break;
+    } else {
       flag3 = 0;
       cout << "Invalid Input. Retry." << endl;
     }

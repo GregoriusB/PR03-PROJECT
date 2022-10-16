@@ -1,10 +1,10 @@
-#include "../Header Files/SingleplayerHard.h"
-
 #include <stdlib.h>
 
 #include <ctime>
 #include <iostream>
 #include <string>
+
+#include "../Header Files/Player.h"
 
 using namespace std;
 
@@ -27,34 +27,26 @@ string SinglePlayerHard::setWord() {
       srand(time(0));
       int random = rand() % 7;
       Word = SportHard[random];
-    }
-
-    // second category(Space hard)
-    else if (WordCategory == "2") {
+      break;
+    } else if (WordCategory == "2") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = SpaceHard[random];
-    }
-
-    // third category(Nature hard)
-    if (WordCategory == "3") {
+      break;
+    } else if (WordCategory == "3") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = NatureHard[random];
-    }
-
-    // fourth category(Random Subjects hard)
-    else if (WordCategory == "4") {
+      break;
+    } else if (WordCategory == "4") {
       // get random words from the array
       srand(time(0));
       int random = rand() % 7;
       Word = AussieHard[random];
-    }
-
-    // Invalid input print
-    else {
+      break;
+    } else {
       flag3 = 0;
       cout << "Invalid Input. Retry." << endl;
     }
