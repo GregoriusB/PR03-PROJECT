@@ -51,5 +51,6 @@ string SinglePlayerHard::setWord() {
       cout << "Invalid Input. Retry." << endl;
     }
   }
+  system("clear");
   return Word;
 }

@@ -130,12 +130,23 @@ void Game::GameWL(int NumLives, string Word) {
   cout << endl;
   if (NumLives < 6) {
     cout << "Game Won! Congratulations! The word was: " << Word << endl;
+    if (Word.length() < 5) {
+      NumPoints += 5;
+      cout << "5 points awarded; The Total so far is: " << NumPoints << endl;
+    } else {
+      NumPoints += 10;
+      cout << "10 points awarded; The Total so far is: " << NumPoints << endl;
+    }
+
   } else {
     cout << "Game Lost! The word was: " << Word << endl;
+    NumPoints -= 5;
+    cout << "5 points lost; The Total so far is: " << NumPoints << endl;
   }
 }
 
 string Game::PlayAgain() {
+  UserPlayAgain = "";
   while (UserPlayAgain != "Y" && UserPlayAgain != "N") {
     cout << "Would you like to play again(Y/N)? ";
     cin >> UserPlayAgain;
