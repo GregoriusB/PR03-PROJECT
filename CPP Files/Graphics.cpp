@@ -5,6 +5,10 @@ using namespace std;
 
 void Graphics::setNumLives(int NumLives) { this->NumLives = NumLives; }
 
+void Graphics::resetNumLives(){
+  NumLives = 0;
+}
+
 void Graphics::PrintHangmanGraphics() {
   switch (NumLives) {
     case 0:

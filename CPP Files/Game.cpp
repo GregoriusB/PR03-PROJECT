@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Saves to progress
 
 // Determines whether the player is ready to commence the game.
 void Game::is_player_ready() {
@@ -16,6 +15,7 @@ void Game::is_player_ready() {
   }
 }
 
+// Determines if user wishes to begin a new game, or load a previous game
 string Game::new_or_load() {
   while ((newOrLoad != "N") && (newOrLoad != "L")) {
     cout << "New or load game? (N or L): ";
@@ -24,7 +24,7 @@ string Game::new_or_load() {
   return newOrLoad;
 }
 
-
+// Adds Save objects to dynamic array
 bool Game::addSave(Save newSave){
   if ((newSave.getScore() > 0) && (numSaves < 3)){
     saveSlots[numSaves] = newSave;
@@ -35,6 +35,7 @@ bool Game::addSave(Save newSave){
   }
 }
 
+// Selects save slot to save in when user chooses new game
 string Game::newGame() {
    if (numSaves == 0){
      newGameSave = "1";
@@ -49,6 +50,7 @@ string Game::newGame() {
    return newGameSave;
 }
 
+// Selects save slot to use when user wishes to load
 string Game::loadGame() {
   if (numSaves == 0){
     cout << "Cannot load, no saved data."<< endl << "Creating new game"<< endl;;
@@ -76,13 +78,13 @@ void Game::clearProgress() {
   delete [] saveSlots;
 }
 
-//load to slot
+//loads points to a slot
 int Game::loadPoints(Save slot) {
   NumPoints = slot.getScore();
   return NumPoints;
 }
 
-// Number of Players
+// Asks user for number of Players
 string Game::Number_of_Players() {
   while ((NumPlayers != "1") && (NumPlayers != "2")) {
     cout << "How many Players (1 or 2): ";
@@ -177,6 +179,7 @@ int Game::GameWL(int NumLives, string Word) {
   return NumPoints;
 }
 
+//asks user if they wish to play again
 string Game::PlayAgain() {
   UserPlayAgain = "";
   while (UserPlayAgain != "Y" && UserPlayAgain != "N") {
@@ -185,4 +188,9 @@ string Game::PlayAgain() {
   }
   system("clear");
   return UserPlayAgain;
+}
+
+//resets lives
+void:: Game::resetLives() {
+  NumLives = 0;
 }

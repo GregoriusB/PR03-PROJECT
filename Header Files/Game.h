@@ -22,10 +22,6 @@ class Game: protected Save {
   int NumLives = 0;
   // Functions necessary for the computational output
  public:
-  Save *saveSlots = new Save[3];
-  bool addSave(Save newSave);
-  bool checkSave(Save saveSlot);
-  void clearProgress();
   void is_player_ready();
   string Number_of_Players();
 
@@ -34,12 +30,16 @@ class Game: protected Save {
   string new_or_load();
   string newGame();
   string loadGame();
-  void clear();
-  void saveProgress(int score);
+  Save *saveSlots = new Save[3];
+  bool addSave(Save newSave);
+  bool checkSave(Save saveSlot);
+  void clearProgress();
+  
 
   // Asking the user for input of a letter
   int get_guess(string Word);
   int LoseLife();
+  void resetLives();
 
   // Defines the unknownword that the user cannot see until they guess correctly
   void defineUnknownWord(string Word);

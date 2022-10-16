@@ -1,13 +1,14 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-class Graphics {
- private:
-  int NumLives = 0;
+#include "Game.h"
+
+class Graphics: protected Game {
 
  public:
   void setNumLives(int NumLives);
   void PrintHangmanGraphics();
+  void resetNumLives();
 };
 
 #endif /* GRAPHICS_H */

@@ -27,39 +27,43 @@ int main() {
   }
 
 // Determines whether the user wants to load a game or play a new game
-    if (newLoad == "\0"){
-          newLoad = Hangman.new_or_load();
-    }
+  if (newLoad == "\0"){
+    newLoad = Hangman.new_or_load();
+  }
 
-    if (newLoad == "L") {
-      currentSlot = stoi(Hangman.loadGame());
-    }
+  if (newLoad == "L") {
+    currentSlot = stoi(Hangman.loadGame());
+  }
 
-    if (newLoad == "N") {
-      currentSlot = stoi(Hangman.newGame());
-    }
+  if (newLoad == "N") {
+    currentSlot = stoi(Hangman.newGame());
+  }
 
-    if (currentSlot == -200){
-      currentSlot = stoi(Hangman.loadGame());
-    }
+  if (currentSlot == -200){
+    currentSlot = stoi(Hangman.loadGame());
+  }
 
-    if (currentSlot == -100){
-      currentSlot = stoi(Hangman.newGame());
-    }
+  if (currentSlot == -100){
+    currentSlot = stoi(Hangman.newGame());
+  }
 
-    switch (currentSlot){
-      case 1:
-        Hangman.loadPoints(s1);
-        break;
-      case 2:
-        Hangman.loadPoints(s2);
-        break;
-      case 3:
-        Hangman.loadPoints(s3);
-        break;
-    }
+  switch (currentSlot){
+    case 1:
+      Hangman.loadPoints(s1);
+      break;
+    case 2:
+      Hangman.loadPoints(s2);
+      break;
+    case 3:
+      Hangman.loadPoints(s3);
+      break;
+  }
   string UserPlayAgain = "Y";
   while (UserPlayAgain == "Y") {
+
+    // Resets lives
+    HangmanPicture.resetNumLives();
+    Hangman.resetLives();
 
     // Determines whether the user is ready to commence the Hangman Game
     Hangman.is_player_ready();
