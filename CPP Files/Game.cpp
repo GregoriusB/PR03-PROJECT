@@ -7,29 +7,6 @@
 using namespace std;
 
 // Saves to progress
-void Game::saveProgress(int score) {
-  ofstream save;
-  save.open("/progress.txt");
-  if (save.is_open()) {
-    // store contents to text file
-    save << score << "\n";
-    save.close();
-  } else {
-    cout << "Problem with opening file";
-  }
-}
-
-// Checks for progress
-int Game::loadProgress() {
-  int myPoints = 0;
-  string strPoints;
-  ifstream load("progress.txt");
-  while (getline(load, strPoints)) {
-    myPoints = stoi(strPoints);
-  }
-  load.close();
-  return myPoints;
-}
 
 // Determines whether the player is ready to commence the game.
 void Game::is_player_ready() {
@@ -47,8 +24,40 @@ string Game::new_or_load() {
   return newOrLoad;
 }
 
-string Game::newGame() {
-   while (newGameSave != "");
+
+bool Game::addSave(Save newSave){
+  if ((newSave.getScore() > 0) && (numSaves < 3)){
+    saveSlots[numSaves] = newSave;
+    numSaves ++;
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//string Game::newGame() {
+  // while (newGameSave != "");
+//}
+
+string Game::loadGame() {
+  if (numSaves == 0){
+    cout << "Cannot load, no saved data."<< endl << "Creating new game"<< endl;;
+    return "-100";
+  }
+  while ((loadGameSave != to_string(numSaves)) && 
+    (loadGameSave != to_string(numSaves-1)) && 
+    (loadGameSave != to_string(numSaves-2))){
+    cout << "Which game would you like to load? (input slot number) :" << endl;
+    for (int i = 0; i < numSaves; i++){
+      cout << "Slot" << " " << i+1 << " " << "(Points: " << saveSlots[i].getScore() << ")" << endl;
+    }
+    cin >> loadGameSave;
+    while ((loadGameSave == "0") || (loadGameSave == "-1")){
+      cout << "Enter a valid input : " << endl;
+      cin >> loadGameSave;
+    }
+  }
+  return loadGameSave;
 }
 
 // Number of Players

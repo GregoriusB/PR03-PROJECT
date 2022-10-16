@@ -13,20 +13,35 @@ using namespace std;
 int main() {
   Game Hangman;
   Graphics HangmanPicture;
-  //Save s1,s2,s3;
- 
+  Save s1,s2,s3;
+  s1.loadProgress1();
+  s2.loadProgress2();
+  s3.loadProgress3();
+  Save slots[3] = {s1,s2,s3};
+  
+  for (int i = 0; i < 3; i++){
+    Hangman.addSave(slots[i]);
+  }
+
   string UserPlayAgain = "Y";
   while (UserPlayAgain == "Y") {
     string NumOfPlayers;
-    //string newLoad;
+    string newLoad;
+    int currentSlot;
 
     // Determines whether the user is ready to commence the Hangman Game
     Hangman.is_player_ready();
 
     // Determines whether the user wants to load a game or play a new game
-    //newLoad = Hangman.new_or_load();
+    newLoad = Hangman.new_or_load();
 
-    
+    if (newLoad == "L"){
+      currentSlot = stoi(Hangman.loadGame());
+    }
+
+    if ((newLoad == "N") || (currentSlot == -100)){
+      //currentSlot = stoi(Hangman.newGame())
+    }
 
     NumOfPlayers = Hangman.Number_of_Players();
 
