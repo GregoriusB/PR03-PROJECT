@@ -7,3 +7,4 @@ int main() {
   if (single.getDifficulty() != "Easy" || single.getDifficulty() != "Hard") {
     cout << "Test failed";
   }
+}
