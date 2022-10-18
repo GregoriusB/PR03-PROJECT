@@ -103,14 +103,15 @@ int main() {
 
       // If the incremented value is not equal to the previous Number of
       // correct guesses, it suggests the user has guessed correctly.
+
       Increment = CorrectGuess;
       CorrectGuess += NumCorrect;
 
       // Print the users guess logic based on input.
       if (CorrectGuess != Increment) {
-        cout << "Correct Guess!" << endl;
+        cout << endl << "Correct Guess!" << endl;
       } else {
-        cout << "Wrong Guess!" << endl;
+        cout << endl << "Wrong Guess!" << endl;
         // The number of lives decreases.
         NumLives = Hangman.LoseLife();
         HangmanPicture.setNumLives(NumLives);
