@@ -114,26 +114,22 @@ void Game::PrintUnknownWord(string Word) {
 int Game::get_guess(string Word) {
   cout << "Enter a letter: ";
   cin >> UserGuess;
-  cout << "Guessed Letters: ";
   // while loop to keep asking guess from the user
   flag = 0;
   while (flag != 1) {
     flag = 1;
 
     while (isdigit(UserGuess[0]) != 0 || (UserGuess.size() != 1)) {
-      cout << endl << "Invalid Input. Retry." << endl;
+      cout << "Invalid Input. Retry" << endl;
       cout << "Enter a letter: ";
       cin >> UserGuess;
-      cout << "Guessed Letters: ";
       flag = 0;
     }
     for (int i = 0; i < k; i++) {
-      cout << AllGuesses[i];
       if (UserGuess[0] == AllGuesses[i]) {
-        cout << endl << "Invalid Input. Retry." << endl;
+        cout << "Already Guessed. Retry" << endl;
         cout << "Enter a letter: ";
         cin >> UserGuess;
-        cout << "Guessed Letters: ";
         flag = 0;
         break;
       }
@@ -152,9 +148,6 @@ int Game::get_guess(string Word) {
       CorrectGuess++;
     }
   }
-
-  AllGuesses[j] = UserGuess[0];
-  j++;
 
   return CorrectGuess;
 }
@@ -199,9 +192,7 @@ string Game::PlayAgain() {
 
 // resets lives
 void ::Game::resetLives() { NumLives = 0; }
-
-//resets guesses
-void::Game::resetGuesses() {
-  string empty = " ";
-  AllGuesses = empty;
+void Game::resetGuesses() {
+  AllGuesses.clear();
+  k = 0;
 }

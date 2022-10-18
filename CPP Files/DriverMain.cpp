@@ -64,6 +64,7 @@ int main() {
     // Resets lives
     HangmanPicture.resetNumLives();
     Hangman.resetLives();
+    Hangman.resetGuesses();
 
     // Determines whether the user is ready to commence the Hangman Game
     Hangman.is_player_ready();
@@ -103,15 +104,14 @@ int main() {
 
       // If the incremented value is not equal to the previous Number of
       // correct guesses, it suggests the user has guessed correctly.
-
       Increment = CorrectGuess;
       CorrectGuess += NumCorrect;
 
       // Print the users guess logic based on input.
       if (CorrectGuess != Increment) {
-        cout << endl << "Correct Guess!" << endl;
+        cout << "Correct Guess!" << endl;
       } else {
-        cout << endl << "Wrong Guess!" << endl;
+        cout << "Wrong Guess!" << endl;
         // The number of lives decreases.
         NumLives = Hangman.LoseLife();
         HangmanPicture.setNumLives(NumLives);
@@ -134,9 +134,6 @@ int main() {
     s1.saveProgress1();
     s2.saveProgress2();
     s3.saveProgress3();
-
-    //clears allguesses
-    Hangman.resetGuesses();
 
     // Determines whether the user wishes to replay the Hangman UserPlayAgain =
     UserPlayAgain = Hangman.PlayAgain();
