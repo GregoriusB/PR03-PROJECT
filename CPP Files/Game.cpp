@@ -120,7 +120,7 @@ int Game::get_guess(string Word) {
     flag = 1;
 
     while (isdigit(UserGuess[0]) != 0 || (UserGuess.size() != 1)) {
-      cout << "Invalid Input. Retry" << endl;
+      cout << "Invalid Input. Retry." << endl;
       cout << "Enter a letter: ";
       cin >> UserGuess;
       flag = 0;
@@ -128,7 +128,7 @@ int Game::get_guess(string Word) {
     for (int i = 0; i < k; i++) {
       cout << AllGuesses[i];
       if (UserGuess[0] == AllGuesses[i]) {
-        cout << "Invalid Input. Retry" << endl;
+        cout << "Invalid Input. Retry." << endl;
         cout << "Enter a letter: ";
         cin >> UserGuess;
         flag = 0;
