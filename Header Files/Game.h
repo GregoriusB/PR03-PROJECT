@@ -46,6 +46,7 @@ class Game: protected Save {
   void PrintUnknownWord(string Word);
   // Determines whether the user won the game or lost
   int GameWL(int NumLives, string Word);
+  void resetGuesses();
 
   string PlayAgain();
 };

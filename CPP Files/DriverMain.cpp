@@ -135,6 +135,9 @@ int main() {
     s2.saveProgress2();
     s3.saveProgress3();
 
+    //clears allguesses
+    Hangman.resetGuesses();
+
     // Determines whether the user wishes to replay the Hangman UserPlayAgain =
     UserPlayAgain = Hangman.PlayAgain();
   }

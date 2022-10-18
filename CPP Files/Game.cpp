@@ -199,3 +199,9 @@ string Game::PlayAgain() {
 
 // resets lives
 void ::Game::resetLives() { NumLives = 0; }
+
+//resets guesses
+void::Game::resetGuesses() {
+  string empty = " ";
+  AllGuesses = empty;
+}
