@@ -195,4 +195,4 @@ string Game::PlayAgain() {
 }
 
 // resets lives
-void ::Game::resetLives() { NumLives = 0; }
+void Game::resetLives() { NumLives = 0; }
