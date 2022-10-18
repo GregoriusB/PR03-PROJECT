@@ -8,6 +8,7 @@
 using namespace std;
 
 class Save {
+  //Private variable strPoints to load the points from the save file
   private:
   string strPoints;
   

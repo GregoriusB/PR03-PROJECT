@@ -114,23 +114,26 @@ void Game::PrintUnknownWord(string Word) {
 int Game::get_guess(string Word) {
   cout << "Enter a letter: ";
   cin >> UserGuess;
+  cout << "Guessed Letters: ";
   // while loop to keep asking guess from the user
   flag = 0;
   while (flag != 1) {
     flag = 1;
 
     while (isdigit(UserGuess[0]) != 0 || (UserGuess.size() != 1)) {
-      cout << "Invalid Input. Retry." << endl;
+      cout << endl << "Invalid Input. Retry." << endl;
       cout << "Enter a letter: ";
       cin >> UserGuess;
+      cout << "Guessed Letters: ";
       flag = 0;
     }
     for (int i = 0; i < k; i++) {
       cout << AllGuesses[i];
       if (UserGuess[0] == AllGuesses[i]) {
-        cout << "Invalid Input. Retry." << endl;
+        cout << endl << "Invalid Input. Retry." << endl;
         cout << "Enter a letter: ";
         cin >> UserGuess;
+        cout << "Guessed Letters: ";
         flag = 0;
         break;
       }
