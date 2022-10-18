@@ -34,6 +34,7 @@ void Graphics::PrintHangmanGraphics() {
       cout << "|   [| \n";
       cout << "|     \n";
       cout << "------ \n";
+      break;
     case 3:
       cout << "_____ \n";
       cout << "|    | \n";
