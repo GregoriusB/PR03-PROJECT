@@ -8,6 +8,7 @@
 using namespace std;
 
 class Save {
+  // initializing variables for save files
   private:
   string strPoints;
   

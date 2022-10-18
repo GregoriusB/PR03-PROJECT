@@ -3,8 +3,10 @@
 using namespace std;
 #include <iostream>
 
+// set the number of lives
 void Graphics::setNumLives(int NumLives) { this->NumLives = NumLives; }
 
+// reset number of lives to zero
 void Graphics::resetNumLives() { NumLives = 0; }
 
 // hangman graphics

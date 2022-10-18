@@ -11,6 +11,7 @@ using namespace std;
 #include <string>
 
 int main() {
+  // initializing class object
   Game Hangman;
   Graphics HangmanPicture;
   Save s1, s2, s3;
